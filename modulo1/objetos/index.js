@@ -114,3 +114,59 @@ function pegarFruta(item1, item2, item3) {
 
 pegarFruta(fruta1, fruta2, fruta3)
 console.log(carrinho)
+
+// Desafios:
+
+// 1.
+
+function user() {
+    const userName = prompt('Digite seu nome')
+    const userAge = prompt('Digite sua idade')
+    const userProfession = prompt('Digite sua profissão')
+    const userObject = {
+        nome: userName,
+        idade: userAge,
+        profissao: userProfession
+    }
+    return userObject
+}
+const resposta = user()
+console.log(resposta)
+console.log(typeof resposta)
+
+// 2.
+
+const filme1 = {
+    nome: 'Amnésia',
+    anoLancamento: 2001
+}
+
+const filme2 = {
+    nome: 'A Origem',
+    anoLancamento: 2010
+}
+ function movies(ano1, ano2) {
+    console.log('O primeiro filme foi lançado antes do segundo?', ano1<ano2)
+    console.log('O primeiro filme foi lançado no mesmo ano do segundo?', ano1==ano2)
+ }
+ movies(filme1.anoLancamento, filme2.anoLancamento)
+
+ // 3.
+
+ function atualizaFruta(produto1, produto2, produto3) {
+    produto1 = {
+        ...fruta1,
+        disponibilidade: !true
+    }
+    produto2 = {
+        ...fruta2,
+        disponibilidade: !true
+    }
+    produto3 = {
+        ...fruta3,
+        disponibilidade: !true
+    }
+    console.log(produto1, produto2, produto3)
+}
+
+atualizaFruta(fruta1, fruta2, fruta3)
