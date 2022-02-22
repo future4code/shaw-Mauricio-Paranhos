@@ -44,7 +44,7 @@ function imprime(nome, apelidos) {
 
 imprime(pessoa.nome, pessoa.apelidos)
 
-// b)
+// // b)
 
 const novaPessoa = {
     ...pessoa,
@@ -53,29 +53,64 @@ const novaPessoa = {
 
 imprime(novaPessoa.nome, novaPessoa.apelidos)
 
-//2.
+// 2.
 
-//a)
+// a)
 
-// const usuario1 = {
-//     nome: "João",
-//     idade: 35,
-//     profissao: "Médico"
-// }
+const usuario1 = {
+    nome: "João",
+    idade: 35,
+    profissao: "Médico"
+}
 
-// const usuario2 = {
-//     nome: "Maria",
-//     idade: 30,
-//     profissao: "Professora"
-// }
+const usuario2 = {
+    nome: "Maria",
+    idade: 30,
+    profissao: "Professora"
+}
 
-// function minhaFuncao() {
-//     const resultado = [usuario1.nome, usuario1.nome.length, usuario1.idade, usuario1.profissao, usuario1.profissao.length]
-//       // desenvolver sua logica
-//       return resultado
-//   }
+// b)
+
+function minhaFuncao(nome, idade, profissao) {
+    const resultado = [nome, nome.length, idade, profissao, profissao.length]
+      // desenvolver sua logica
+      return resultado
+  }
   
-//    console.log(minhaFuncao(usuario1))
-//    console.log(minhaFuncao(usuario2))
+   console.log(minhaFuncao(usuario1.nome, usuario1.idade, usuario1.profissao))
+   console.log(minhaFuncao(usuario2.nome, usuario2.idade, usuario2.profissao))
 
-  // Retorno: ["Bruno", 5, 23, "Instrutor", 9]
+// 3.
+
+// a)
+
+const carrinho = []
+
+// b)
+
+const fruta1 = {
+    nome: 'laranja',
+    disponibilidade: true
+}
+
+const fruta2 = {
+    nome: 'pêssego',
+    disponibilidade: true
+}
+
+const fruta3 = {
+    nome: 'abacaxi',
+    disponibilidade: true
+}
+
+// c)
+
+function pegarFruta(item1, item2, item3) {
+    carrinho.push(item1)
+    carrinho.push(item2)
+    carrinho.push(item3)
+    return carrinho
+}
+
+pegarFruta(fruta1, fruta2, fruta3)
+console.log(carrinho)
