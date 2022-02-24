@@ -38,5 +38,51 @@ if (bichosDeEstimacao === 0) {
 console.log(arrayNomes)
 }
 
+//2.  
 
+let arrayOriginal = [8, 12, 37, 15, 50, 20, 47, 158, 199, 202]
 
+//a) 
+
+console.log(arrayOriginal)
+
+// b) 
+
+for (let index = 0; index < arrayOriginal.length; index++) {
+    console.log(arrayOriginal[index] / 10)    
+}
+
+// c) 
+let arrayNovo = []
+for (let index = 0; index < arrayOriginal.length; index++) {
+    if (arrayOriginal[index] % 2 == 0) {
+        arrayNovo.push(arrayOriginal[index])
+    }
+}
+console.log(arrayNovo)
+
+// d) 
+
+let i = 0
+for (let numero of arrayOriginal){
+    console.log("O elemento do índex", i,"é:", numero);
+    i = i+1
+}
+
+// e) 
+
+let valorMaximo = 10
+for (let numero of arrayOriginal) {
+    if (valorMaximo < numero) {
+        valorMaximo = numero
+    }
+}
+
+let valorMinimo = 16
+for (let numero of arrayOriginal) {
+    if (valorMinimo > numero) {
+        valorMinimo = numero
+    }
+}
+
+console.log("O maior número é", valorMaximo, "e o menor número é", valorMinimo)
