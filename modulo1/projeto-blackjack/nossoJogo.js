@@ -14,11 +14,11 @@
       // o que fazer se o usuário clicar "ok"
       const cartaUsuario1 = comprarCarta()
       const cartaUsuario2 = comprarCarta()
-      const pontuacaoUsuario = cartaUsuario1.valor + cartaUsuario2.valor
-      const pontuacaoCpu = cartaCpu1.valor + cartaCpu2.valor
+      const pontuacaoUsuario = cartaUsuario1.valor + cartaUsuario2.valor      
       console.log("Usuário - cartas:", cartaUsuario1.texto, cartaUsuario2.texto, " - pontuação", pontuacaoUsuario)
       const cartaCpu1 = comprarCarta()
       const cartaCpu2 = comprarCarta()
+      const pontuacaoCpu = cartaCpu1.valor + cartaCpu2.valor
       console.log("Computador - cartas:", cartaCpu1.texto, cartaCpu2.texto, " - pontuação", pontuacaoCpu)
       if (pontuacaoUsuario > pontuacaoCpu) {
          console.log("O usuário ganhou!")
