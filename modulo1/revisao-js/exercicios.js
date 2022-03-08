@@ -71,22 +71,51 @@ function retornaMaiorNumero(array5) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-  // if (num1 > num2) {
-  //   return num1
-  // } else {
-  //   return num2
-  // }
-  
-  // const numeros = {
-  //   maiorNumero: 30,
-  //   maiorDivisivelPorMenor: true,
-  //   diferenca: 15
-  // }
+  const numeros = {}
+  function maior(num1, num2) {
+    if (num1 > num2) {
+      return num1
+    } else {
+      return num2
+    }
+  }
+  function divisivel(num1, num2) {
+    if (num1 > num2) {
+      if (num1 % num2 == 0) {
+        return true 
+      }
+      return false
+    } else {
+      if (num2 % num1 == 0) {
+        return true
+      }
+      return false
+    }
+  }
+  function dife(num1, num2) {
+    if (num1 > num2) {
+      return num1 - num2
+    } else {
+      return num2 - num1
+    }
+  }
+  numeros.maiorNumero = maior(num1, num2)
+  numeros.maiorDivisivelPorMenor = divisivel(num1, num2)
+  numeros.diferenca = dife(num1, num2)
+  return numeros
 }
 
 // EXERCÍCIO 08
+let array6 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 function retornaNPrimeirosPares(n) {
-   
+  let numerosPares2 = array6.reduce(function(total4, item4) {
+    if(item4 % 2 === 0) {
+    total4.push(item4)
+    }
+    return total4
+    }, [])
+  return numerosPares2.splice(n, numerosPares2.length())
+
 }
 
 // EXERCÍCIO 09
