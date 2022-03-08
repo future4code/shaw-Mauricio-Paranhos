@@ -30,28 +30,58 @@ function retornaArrayOrdenado(array2) {
 // EXERCÍCIO 04
 let array3 = [1, 2, 3, 4, 5, 6]
 function retornaNumerosPares(array3) {
-  array3.filter((numero, indice, array) => {
-      if (numero %2 === 0) {
-          let arrayNumerosPares = []
-          arrayNumerosPares.push(numero)
-      }
-      return arrayNumerosPares
-  })
+  let numerosPares = array3.reduce(function(total, item) {
+    if(item % 2 === 0) {
+    total.push(item)
+    }
+    return total
+    }, [])
+  return numerosPares
 }
 
 // EXERCÍCIO 05
-function retornaNumerosParesElevadosADois(array) {
- 
+let array4 = [1, 2, 3, 4, 5, 6]
+function retornaNumerosParesElevadosADois(array4) {
+  // let numerosPares2 = array4.reduce(function(total2, item2) {
+  //   if(item2 % 2 === 0) {
+  //     total2.push(item2)
+  //   }
+  //   return total2
+  //   }, [])
+  // let elevados = numerosPares2.filter((item3, total3) => {
+  //   total3 = item3 * item3
+    
+  // })
+  // return elevados
 }
 
-// EXERCÍCIO 06
-function retornaMaiorNumero(array) {
-  
+// EXERCÍCIO 
+let array5 = [1, 5, 3, 7, 5, 2]
+function retornaMaiorNumero(array5) {
+  let i = 0
+  let maiorNumero = -Infinity
+  while (i < array5.length) {
+    if (array5[i] > maiorNumero) {
+      maiorNumero = array5[i]
+    }
+    i++
+  }
+  return maiorNumero
 }
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-
+  // if (num1 > num2) {
+  //   return num1
+  // } else {
+  //   return num2
+  // }
+  
+  // const numeros = {
+  //   maiorNumero: 30,
+  //   maiorDivisivelPorMenor: true,
+  //   diferenca: 15
+  // }
 }
 
 // EXERCÍCIO 08
