@@ -2,6 +2,15 @@ body {
     background: rgb(82, 189, 247);
 }
 
+.menu {
+    margin-left: auto;
+    margin-right: auto;        
+}
+
+.formulario {
+    text-align: center;
+}
+
 h1 {
     text-align: center;
     color: dimgrey;
@@ -20,9 +29,6 @@ img {
 
 .texto-primario {
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 6em
     color: rgb(63, 64, 66);
 }
 
