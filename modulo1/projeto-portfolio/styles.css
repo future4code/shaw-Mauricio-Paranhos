@@ -1,0 +1,38 @@
+body {
+    background: rgb(82, 189, 247);
+}
+
+.menu {
+    margin-left: auto;
+    margin-right: auto;        
+}
+
+.formulario {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: dimgrey;
+}
+
+h2 {
+    text-align: center;
+    color: dimgrey;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.texto-primario {
+    text-align: center;
+    color: rgb(63, 64, 66);
+}
+
+ol {
+    text-align: center;
+    list-style-position: inside;
+}
