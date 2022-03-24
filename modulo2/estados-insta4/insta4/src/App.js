@@ -1,18 +1,11 @@
 import React from 'react';
-import styled from 'styled-components'
+import './App.css';
 import Post from './components/Post/Post';
-
-const MainContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`
 
 class App extends React.Component {
   render() {
     return (
-      <MainContainer>
+      <div className={'app-container'}>
         <Post
           nomeUsuario={'paulinha'}
           fotoUsuario={'https://picsum.photos/50/50'}
@@ -28,7 +21,7 @@ class App extends React.Component {
           fotoUsuario={'https://picsum.photos/52/52'}
           fotoPost={'https://picsum.photos/202/152'}
         />
-      </MainContainer>
+      </div>
     );
   }
 }

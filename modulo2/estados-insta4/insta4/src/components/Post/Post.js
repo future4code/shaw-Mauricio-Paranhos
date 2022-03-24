@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import './Post.css'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
 
@@ -7,38 +7,6 @@ import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
-
-const PostContainer = styled.div`
-  border: 1px solid gray;
-  width: 300px;
-  margin-bottom: 10px;
-`
-
-const PostHeader = styled.div`
-  height: 40px;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-`
-
-const PostFooter = styled.div`
-  height: 40px;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  justify-content: space-between;
-`
-
-const UserPhoto = styled.img`
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
-  border-radius: 50%;
-`
-
-const PostPhoto = styled.img`
-  width: 100%;
-`
 
 class Post extends React.Component {
   state = {
@@ -49,9 +17,19 @@ class Post extends React.Component {
   }
 
   onClickCurtida = () => {
+    let novasCurtidas
+
+    if(this.state.curtido) {
+      novasCurtidas = this.state.numeroCurtidas - 1
+    } else {
+      novasCurtidas = this.state.numeroCurtidas + 1
+    }
+    
     console.log('Curtiu!')
+    
     this.setState({
-      curtido: !this.state.curtido
+      curtido: !this.state.curtido,
+      numeroCurtidas: novasCurtidas
     })
   }
 
@@ -83,15 +61,15 @@ class Post extends React.Component {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
 
-    return <PostContainer>
-      <PostHeader>
-        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+    return <div className={'post-container'}>
+      <div className={'post-header'}>
+        <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
         <p>{this.props.nomeUsuario}</p>
-      </PostHeader>
+      </div>
 
-      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
+      <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'}/>
 
-      <PostFooter>
+      <div className={'post-footer'}>
         <IconeComContador
           icone={iconeCurtida}
           onClickIcone={this.onClickCurtida}
@@ -103,9 +81,9 @@ class Post extends React.Component {
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
         />
-      </PostFooter>
+      </div>
       {componenteComentario}
-    </PostContainer>
+    </div>
   }
 }
 
