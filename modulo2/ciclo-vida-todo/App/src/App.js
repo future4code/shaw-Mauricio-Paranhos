@@ -23,23 +23,18 @@ class App extends React.Component {
       tarefas: [{
         id: Date.now(),
         texto: 'Primeira tarefa',
-        completa: false // Indica se a tarefa está completa (true ou false)
-      },
-      {
-        id: Date.now(), // Explicação abaixo
-        texto: 'Segunda tarefa',
-        completa: true // Indica se a tarefa está completa (true ou false)
+        completa: false
       }],
       inputValue: '',
       filtro: ''
     }
 
   componentDidUpdate() {
-
+    //não consegui entender o funcionamemto
   };
 
   componentDidMount() {
-
+    //não consegui entender o funcionamemto
   };
 
   onChangeInput = (event) => {
@@ -53,17 +48,29 @@ class App extends React.Component {
       completa: false
     }
 
-    const novaLitaDeTarefas = [...this.state.tarefas, novaTarefa]
+    const novaListaDeTarefas = [...this.state.tarefas, novaTarefa]
 
-    this.setState({tarefas: novaLitaDeTarefas})
+    this.setState({tarefas: novaListaDeTarefas})
   }
 
   selectTarefa = (id) => {
+    const listaNovaDeTarefas = this.state.tarefas.map((tarefa) => {
+      if(id === tarefa.id) {
+        const tarefaNova = {
+          ...tarefa,
+          completa: !tarefa.completa
+        }
+        return tarefaNova
+      } else {
+        return tarefa
+      }
+    })
 
+    this.setState({tarefas: listaNovaDeTarefas})
   }
 
   onChangeFilter = (event) => {
-
+    this.setState({filtro: event.target.value})
   }
 
   render() {
