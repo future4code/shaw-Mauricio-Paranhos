@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: dimgrey;
+    height: 10vh;
+    width: 100vw;
+    padding: 0 20px;
+    box-shadow: 0px 5px 20px black;
+}
+
+.logo {
+    height: 45px;
+    width: 168px;
+    margin-right: 10px;
+}
+
+body {
+    background-color: darkgrey;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    color: black;
+    text-shadow: 0px 5px 8px black;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 100vw;
+    display: grid;
+    grid-template-areas: 
+    "item item item item"
+    "item item item item"
+    "footer footer footer footer";
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.item {
+    grid-area: "item";
+}
+
+.footer {
+    position:absolute;
+	bottom:0;
+	width:100%;
+    height: 80px;
+    background-color: dimgrey;
+    text-align: center;
+    grid-area: "footer";
+    grid-column: footer;
+}
+
+.footer2 {
+    display: flex;
+    position:absolute;
+	bottom:0;
+    width: 100%;
+    height: 80px;
+    background-color: dimgrey;
+    text-align: center;
+    justify-content: center;
+}
+
+h2 {
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.fullscreen {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    width: auto;
+    height: auto;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
