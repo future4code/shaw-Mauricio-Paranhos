@@ -11,13 +11,10 @@ export default class App extends React.Component {
     switch (this.state.telaAtual){
       case "cadastro":
         return <TelaCadastro irParaLista={this.irParaLista}/>
-        break;
       case "lista":
         return <TelaPlaylists irParaCadastro={this.irParaCadastro}/>
-        break;
       default:
         return <div>Erro! Página não encontrada.</div>
-        break;
     }
   }
 

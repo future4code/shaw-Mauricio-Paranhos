@@ -5,9 +5,11 @@ import styled from "styled-components"
 const CardPlaylist = styled.div`
     display: flex;
     border: 1px solid black;
+    background-color: #1DB954;
     padding: 10px;
     margin: 10px;
     width: 300px;
+    align-items: center;
     justify-content: space-between;
 `
 
@@ -28,7 +30,7 @@ export default class TelaPlaylists extends React.Component{
             }
         })
         .then((res) => {
-            this.setState({playlists: res.data})
+            this.setState({playlists: res.data.result.list})
         })
         .catch((err) => {
             alert("Ocorreu um problema, tente novamente")
@@ -52,18 +54,21 @@ export default class TelaPlaylists extends React.Component{
     }
 
     render(){
-        const listaplaylists = this.state.playlists.map((list) => {
-            return <CardPlaylist key={list.id}>
-                {list.name}
-                <button onClick={() => this.deletarPlaylist(list.id)}>X</button>
+        const listaPlaylists = this.state.playlists.map((playlist) => {
+            return <CardPlaylist key={playlist.id}>
+                {playlist.name}
+                <div>
+                <button onClick={() => this.deletarPlaylist(playlist.id)}>Excluir</button><br/><br/>
+                <button onClick={() => this.detalharPlaylist(playlist.id)}>Detalhes</button>
+                </div>
                 </CardPlaylist>
         })
 
         return(
             <div>
                 <button onClick={this.props.irParaCadastro}>Ir para Cadastro</button>
-                <h2>Lista de Playlists</h2>
-                {listaplaylists}
+                <h1>Lista de Playlists</h1>
+                <h3>{listaPlaylists}</h3>
             </div>
         )
     }
