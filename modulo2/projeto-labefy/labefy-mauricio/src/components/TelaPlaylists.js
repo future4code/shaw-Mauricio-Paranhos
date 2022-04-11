@@ -58,15 +58,14 @@ export default class TelaPlaylists extends React.Component{
             return <CardPlaylist key={playlist.id}>
                 {playlist.name}
                 <div>
-                <button onClick={() => this.deletarPlaylist(playlist.id)}>Excluir</button><br/><br/>
-                <button onClick={() => this.detalharPlaylist(playlist.id)}>Detalhes</button>
+                    <button onClick={() => this.deletarPlaylist(playlist.id)}>Excluir</button><br/><br/>
+                    <button onClick={() => this.props.vaiParaDetalhes(playlist.id)}>Detalhes</button>
                 </div>
                 </CardPlaylist>
         })
 
         return(
             <div>
-                <button onClick={this.props.irParaCadastro}>Ir para Cadastro</button>
                 <h1>Lista de Playlists</h1>
                 <h3>{listaPlaylists}</h3>
             </div>

@@ -1,34 +1,41 @@
 import React from "react";
 import TelaCadastro from "./components/TelaCadastro.js";
 import TelaPlaylists from "./components/TelaPlaylists";
+import DetalhesPlaylist from "./components/DetalhesPlaylist.js";
 
 export default class App extends React.Component {
   state = {
-    telaAtual: "cadastro"
+    telaAtual: "cadastro",
+    playlistClicada: ""
   }
 
+  vaiParaDetalhes = (id) => {
+    this.setState({telaAtual:"detalhes", playlistClicada: id})
+  }
+
+ 
   escolheTela = () => {
     switch (this.state.telaAtual){
       case "cadastro":
-        return <TelaCadastro irParaLista={this.irParaLista}/>
-      case "lista":
-        return <TelaPlaylists irParaCadastro={this.irParaCadastro}/>
+        return <TelaCadastro />
+      case "playlist":
+        return <TelaPlaylists vaiParaDetalhes={this.vaiParaDetalhes}/>
+      case "detalhes":
+        return <DetalhesPlaylist id={this.state.playlistClicada}/>
       default:
-        return <div>Erro! Página não encontrada.</div>
+        return <TelaCadastro />
     }
   }
-
-  irParaCadastro = () => {
-    this.setState({telaAtual: "cadastro"})
-  }
-
-  irParaLista = () => {
-    this.setState({telaAtual: "lista"})
+  
+  mudaTela = (nomeTela) => { 
+    this.setState({telaAtual: nomeTela})
   }
   
-  render(){
+  render() {
     return (
       <div>
+        <button onClick={() => this.mudaTela("cadastro")}>Cadastro</button>
+        <button onClick={() => this.mudaTela("playlist")}>Playlist</button>
         {this.escolheTela()}
       </div>
     )

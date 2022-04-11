@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import styled from "styled-components"
 
 export default class TelaCadastro extends React.Component {
     state = {
@@ -33,7 +34,6 @@ export default class TelaCadastro extends React.Component {
     render(){
         return(
             <div>
-                <button onClick={this.props.irParaLista}>Ir para Lista de Playlists</button>
                 <h2>Cadastro</h2>
                 <input 
                     placeholder={"Nome"}
