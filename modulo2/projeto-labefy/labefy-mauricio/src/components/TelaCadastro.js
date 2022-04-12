@@ -2,6 +2,16 @@ import React from "react"
 import axios from "axios"
 import styled from "styled-components"
 
+const CadastrContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+const Button = styled.button`
+  border-radius: 7px;
+`
+
 export default class TelaCadastro extends React.Component {
     state = {
         nome: ""
@@ -33,15 +43,18 @@ export default class TelaCadastro extends React.Component {
 
     render(){
         return(
-            <div>
+            <CadastrContainer>
                 <h2>Cadastro</h2>
-                <input 
-                    placeholder={"Nome"}
-                    value={this.state.nome}
-                    onChange={this.handleNome}
-                />
-                <button onClick={this.fazerCadastro}>Criar Playlist</button>
-            </div>
+                <div>
+                    <label>Nova playlist:</label>&nbsp;
+                    <input 
+                        placeholder={"Digite o nome"}
+                        value={this.state.nome}
+                        onChange={this.handleNome}
+                    />
+                </div>&nbsp;
+                <Button type="submit" onClick={this.fazerCadastro}>Criar Playlist</Button>
+            </CadastrContainer>
         )
     }
 }

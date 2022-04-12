@@ -5,12 +5,23 @@ import styled from "styled-components"
 const CardPlaylist = styled.div`
     display: flex;
     border: 1px solid black;
+    border-radius: 5px;
     background-color: #1DB954;
     padding: 10px;
     margin: 10px;
-    width: 300px;
+    width: 25vw;
+    height: 5vh;
     align-items: center;
     justify-content: space-between;
+`
+const ListaDePlaylistsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+const Button = styled.button`
+  border-radius: 7px;
 `
 
 export default class TelaPlaylists extends React.Component{
@@ -56,19 +67,19 @@ export default class TelaPlaylists extends React.Component{
     render(){
         const listaPlaylists = this.state.playlists.map((playlist) => {
             return <CardPlaylist key={playlist.id}>
-                {playlist.name}
+                <strong>Nome:</strong> <i>{playlist.name}</i>
                 <div>
-                    <button onClick={() => this.deletarPlaylist(playlist.id)}>Excluir</button><br/><br/>
-                    <button onClick={() => this.props.vaiParaDetalhes(playlist.id)}>Detalhes</button>
+                    <Button onClick={() => this.deletarPlaylist(playlist.id)}>Excluir</Button>&nbsp;
+                    <Button onClick={() => this.props.vaiParaDetalhes(playlist.id)}>Detalhes</Button>
                 </div>
                 </CardPlaylist>
         })
 
         return(
-            <div>
+            <ListaDePlaylistsContainer>
                 <h1>Lista de Playlists</h1>
                 <h3>{listaPlaylists}</h3>
-            </div>
+            </ListaDePlaylistsContainer>
         )
     }
 }

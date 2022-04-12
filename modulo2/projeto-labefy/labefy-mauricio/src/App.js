@@ -1,7 +1,17 @@
-import React from "react";
-import TelaCadastro from "./components/TelaCadastro.js";
-import TelaPlaylists from "./components/TelaPlaylists";
-import DetalhesPlaylist from "./components/DetalhesPlaylist.js";
+import React from "react"
+import TelaCadastro from "./components/TelaCadastro.js"
+import TelaPlaylists from "./components/TelaPlaylists"
+import DetalhesPlaylist from "./components/DetalhesPlaylist.js"
+import styled from "styled-components"
+
+const MenuContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+const Button = styled.button`
+  border-radius: 7px;
+`
 
 export default class App extends React.Component {
   state = {
@@ -33,9 +43,12 @@ export default class App extends React.Component {
   
   render() {
     return (
+      
       <div>
-        <button onClick={() => this.mudaTela("cadastro")}>Cadastro</button>
-        <button onClick={() => this.mudaTela("playlist")}>Playlist</button>
+        <MenuContainer>
+          <Button onClick={() => this.mudaTela("cadastro")}>Cadastro</Button>&nbsp;
+          <Button onClick={() => this.mudaTela("playlist")}>Playlist</Button>
+        </MenuContainer>
         {this.escolheTela()}
       </div>
     )
