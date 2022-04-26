@@ -9,20 +9,12 @@ const ContainerApp = styled.div`
     justify-content: center;
     align-items: center;
 `
-const ContainerBotaoLimpar = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin-right: 10%;
-`
 
 function App () {
     return (
         <ContainerApp>
             <Home/>
-            <ContainerBotaoLimpar>
-                <BotaoLimpar/>
-            </ContainerBotaoLimpar>
+            <BotaoLimpar/>
         </ContainerApp>
     )
 }

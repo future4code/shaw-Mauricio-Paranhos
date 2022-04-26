@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ContainerItemListaDeMatchs = styled.div`
+const ContainerItemListaDeMatches = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 5%;
@@ -14,15 +14,17 @@ const PicPerfil = styled.img`
   margin-right: 5%;
   margin-left: 5%;
   border-radius: 50%;
+  height: 30px;
+  width: 30px;
 `
 
-function ItemListaDeMatchs() {
+function ItemListaDeMatches(props) {
   return (
-    <ContainerItemListaDeMatchs>
-        <PicPerfil src={'https://picsum.photos/30/30'}/>
-        <p>Nome da pessoa</p>        
-    </ContainerItemListaDeMatchs>
+    <ContainerItemListaDeMatches>
+        <PicPerfil src={props.perfil.photo}/>
+        <p>{props.perfil.name}</p>        
+    </ContainerItemListaDeMatches>
   )
 }
 
-export default ItemListaDeMatchs
+export default ItemListaDeMatches

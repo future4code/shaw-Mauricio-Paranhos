@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import logo from './astromatch_logo.png'
 
 const ContainerBarra = styled.div`
   display: flex;
@@ -8,13 +9,17 @@ const ContainerBarra = styled.div`
   padding: 0 8px;
   border-bottom: 1px solid gray;
 `
+const LogoContainer = styled.img`
+  height: 60px;
+  width: 190px;
+`
 
-function BarraApp() {
+function BarraApp(props) {
   return (
     <ContainerBarra>
-      <button>Escolher</button>
-      <h2>Astromatch</h2>
-      <button>Lista</button>
+      <button onClick={props.vaiParaEscolherPerfil}>Escolher</button>
+      <LogoContainer src={logo} />
+      <button onClick={props.vaiParaListaDeMatches}>Lista</button>
     </ContainerBarra>
   )
 }
