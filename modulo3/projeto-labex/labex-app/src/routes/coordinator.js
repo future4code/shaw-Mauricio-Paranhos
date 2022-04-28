@@ -10,3 +10,23 @@ export const goBack = (navigate) => {
 export const goToListTripsPage = (navigate) => {
     navigate('/listTrip')
 }
+
+export const goToAdminHomePage = (navigate) => {
+    navigate('/adminHome')
+}
+
+export const goApplicationFormPage = (navigate) => {
+    navigate('/applicationForm')
+}
+
+export const goToCreateTripPage = (navigate) => {
+    navigate('/creatTrip')
+}
+
+export const goToTripDetailsPage = (navigate) => {
+    navigate('/tripDetails')
+}
+
+export const goToLoginPage = (navigate) => {
+    navigate('/login')
+}
