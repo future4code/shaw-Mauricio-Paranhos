@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { goToHomePage, goBack, goApplicationFormPage } from '../routes/coordinator'
+import { TripsCard } from '../components/TripsCard'
 import styled from 'styled-components'
 
 const ListTripsPageContainer = styled.div`
@@ -38,7 +39,8 @@ export const ListTripsPage = () => {
       </Botoes>
       <h1>Lista de Viagens</h1>
       <div>
-        <Card>
+        <TripsCard />
+        {/* <Card>
           <p><strong>Nome: </strong> Fuja para Plutão</p>
           <p><strong>Descrição: </strong> Fuja de tudo e de todos que te aborrecem para o planeta mais distante do sistema solar</p>
           <p><strong>Planeta: </strong> Plutão</p>
@@ -58,7 +60,7 @@ export const ListTripsPage = () => {
           <p><strong>Planeta: </strong> Plutão</p>
           <p><strong>Duração: </strong> 10000</p>
           <p><strong>Data: </strong> 2200-01-01</p>
-        </Card>
+        </Card> */}
       </div>
     </ListTripsPageContainer>
   )
