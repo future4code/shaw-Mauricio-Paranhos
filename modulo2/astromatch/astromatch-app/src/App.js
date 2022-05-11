@@ -1,24 +1,22 @@
-import React from "react"
-import axios from "axios"
-import Post from "./components/Post/Post";
-import styled from "styled-components";
+import React from 'react';
+import Home from './components/Home/Home';
+import BotaoLimpar from './components/BotaoLimpar/BotaoLimpar';
+import styled from 'styled-components';
 
-const AppContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`;
+const ContainerApp = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
 
-const App = () => {
-  return (
-    <AppContainer>
-      <Post
-        nomeUsuario={"Usuário"}
-        fotoPost={"https://picsum.photos/200/150?=2"}
-      />
-    </AppContainer>
-  );
-};
+function App () {
+    return (
+        <ContainerApp>
+            <Home/>
+            <BotaoLimpar/>
+        </ContainerApp>
+    )
+}
 
 export default App;
