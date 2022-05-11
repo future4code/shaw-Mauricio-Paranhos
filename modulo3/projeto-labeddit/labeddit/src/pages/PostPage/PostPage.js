@@ -1,18 +1,36 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { goBack, goToLoginPage, goToRegisterPage, goToFeedPage } from '../../routes/coordinator'
+import {Button} from "@material-ui/core"
+import styled from 'styled-components'
+
+const PostPageComtainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const ButtonConteioner = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30vw;
+`
 
 const PostPage = () => {
   const navigate = useNavigate()
 
   return (
-    <div>
+    <PostPageComtainer>
         <h1>PostPage</h1>
-        <button onClick={() => goToFeedPage(navigate)} >Feed</button>
-        <button onClick={() => goToLoginPage(navigate)} >Login</button>
-        <button onClick={() => goToRegisterPage(navigate)} >Register</button>
-        <button onClick={() => goBack(navigate)} >Voltar</button>
-    </div>
+        <ButtonConteioner>
+          <Button variant="contained" color="primary" onClick={() => goToFeedPage(navigate)} >Feed</Button>
+          <Button variant="contained" color="primary" onClick={() => goToLoginPage(navigate)} >Login</Button>
+          <Button variant="contained" color="primary" onClick={() => goToRegisterPage(navigate)} >Register</Button>
+          <Button variant="contained" color="primary" onClick={() => goBack(navigate)} >Voltar</Button>
+        </ButtonConteioner>
+    </PostPageComtainer>
   )
 }
 
