@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom"
 
-export const goToFeedPage = (navigate) => {
+export const goToLoginPage = (navigate) => {
     navigate('/')
 }
 
-export const goToLoginPage = (navigate) => {
-    navigate('/login/')
+export const goToFeedPage = (navigate) => {
+    navigate('/feed/')
 }
 
 export const goToPostPage = (navigate) => {

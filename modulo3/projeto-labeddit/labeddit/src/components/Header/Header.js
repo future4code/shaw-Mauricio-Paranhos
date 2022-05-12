@@ -6,14 +6,29 @@ import Button from '@material-ui/core/Button'
 import { goBack, goToLoginPage, goToRegisterPage, goToFeedPage } from '../../routes/coordinator'
 
 
-const Header = () => {
+const Header = ({rightButtonText, setRightButtonText}) => {
   const navigate = useNavigate()
+  const token = localStorage.getItem("token")
+
+  const logout = () => {
+    localStorage.removeItem("token")
+  }
+
+  const rightButtonAction = () => {
+    if (token){
+      logout()
+      setRightButtonText("Login")
+      goToLoginPage(navigate)
+  } else {
+      goToLoginPage(navigate)
+    }
+  }
 
   return (
       <AppBar position="static">
         <StyledToolbar>
           <Button color="inherit" onClick={() => goToFeedPage(navigate)}>Labeddit</Button>
-          <Button color="inherit" onClick={() => goToLoginPage(navigate)}>Login</Button>
+          <Button color="inherit" onClick={rightButtonAction}>{rightButtonText}</Button>
         </StyledToolbar>
       </AppBar>
   )

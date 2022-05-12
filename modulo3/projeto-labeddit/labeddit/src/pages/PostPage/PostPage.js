@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { goBack, goToLoginPage, goToRegisterPage, goToFeedPage } from '../../routes/coordinator'
 import {Button} from "@material-ui/core"
 import styled from 'styled-components'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 const PostPageComtainer = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ const ButtonConteioner = styled.div`
 
 const PostPage = () => {
   const navigate = useNavigate()
+  useProtectedPage()
 
   return (
     <PostPageComtainer>

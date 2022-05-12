@@ -1,35 +1,81 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { goBack, goToLoginPage, goToPostPage, goToFeedPage } from '../../routes/coordinator'
-import {Button} from "@material-ui/core"
-import styled from 'styled-components'
+import React from "react"
+import { useNavigate } from "react-router-dom"
+import { goBack, goToLoginPage, goToPostPage, goToFeedPage } from "../../routes/coordinator"
+import {Button, TextField} from "@material-ui/core"
+import logo from "../../assets/logo.png"
+import useForm from "../../hooks/useForm"
+import { RegisterPageComtainer, ButtonConteioner, LogoImage, InputsContainer } from "./styled"
+import { register } from "../../services/users"
+import useUnprotectedPage from "../../hooks/useUnprotectedPage"
 
-const RegisterPageComtainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
+const RegisterPage = ({setRightButtonText}) => {
+  const navigate = useNavigate();
+  useUnprotectedPage()
+  const [form, onChange, clear] = useForm({ username: "", email: "", password: "" })
 
-const ButtonConteioner = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 30vw;
-`
-
-const RegisterPage = () => {
-  const navigate = useNavigate()
+  const onSubmitForm = (event) => {
+    event.preventDefault()
+    register(form, clear, navigate, setRightButtonText)
+  }
 
   return (
     <RegisterPageComtainer>
-        <h1>RegisterPage</h1>
-        <ButtonConteioner>
+      <LogoImage src={logo} />
+      <h1>RegisterPage</h1>
+
+      <InputsContainer>
+        <form onSubmit={onSubmitForm}>
+          <TextField
+            name={"username"}
+            value={form.username}
+            onChange={onChange}
+            label={"Nome"}
+            variant={"outlined"}
+            fullWidth
+            margin={"normal"}
+            required
+            autoFocus
+          />
+          <TextField
+            name={"email"}
+            value={form.email}
+            onChange={onChange}
+            label={"E-mail"}
+            variant={"outlined"}
+            fullWidth
+            margin={"normal"}
+            required
+            type={"email"}
+          />
+          <TextField
+            name={"password"}
+            value={form.password}
+            onChange={onChange}
+            label={"Senha"}
+            variant={"outlined"}
+            fullWidth
+            margin={"normal"}
+            required
+            type={"password"}
+          />
+
+          <Button
+            type={"submit"}
+            fullWidth
+            variant={"contained"}
+            color={"primary"}
+          >
+            Fazer Cadastro
+          </Button>
+        </form>
+      </InputsContainer>
+
+      {/* <ButtonConteioner>
           <Button variant="contained" color="primary" onClick={() => goToFeedPage(navigate)} >Feed</Button>
           <Button variant="contained" color="primary" onClick={() => goToPostPage(navigate)} >Post</Button>
           <Button variant="contained" color="primary" onClick={() => goToLoginPage(navigate)} >Login</Button>
           <Button variant="contained" color="primary" onClick={() => goBack(navigate)} >Voltar</Button>
-        </ButtonConteioner>
+        </ButtonConteioner> */}
     </RegisterPageComtainer>
   )
 }

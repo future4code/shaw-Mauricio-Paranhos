@@ -36,7 +36,7 @@ export const SignInButtonContainer = styled.div`
     max-width: 450px;
 `
 
-export const ButtonConteioner = styled.div`
+export const ButtonContaioner = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;

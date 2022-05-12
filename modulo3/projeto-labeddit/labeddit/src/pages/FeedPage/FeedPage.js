@@ -2,24 +2,13 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { goBack, goToLoginPage, goToPostPage, goToRegisterPage } from '../../routes/coordinator'
 import {Button} from "@material-ui/core"
-import styled from 'styled-components'
-
-const FeedPageComtainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
-const ButtonConteioner = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 30vw;
-`
+import { FeedPageComtainer, ButtonConteioner } from "./styled"
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 const FeedPage = () => {
   const navigate = useNavigate()
+
+  useProtectedPage()
 
   return (
     <FeedPageComtainer>

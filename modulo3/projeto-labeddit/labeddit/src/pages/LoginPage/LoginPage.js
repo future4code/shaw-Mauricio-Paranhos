@@ -2,17 +2,21 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { goBack, goToPostPage, goToRegisterPage, goToFeedPage } from '../../routes/coordinator'
 import {Button, TextField} from "@material-ui/core"
-import {LoginPageComtainer, LogoImage, InputsContainer, ButtonConteioner, SignInButtonContainer} from "./styled"
+import {LoginPageComtainer, LogoImage, InputsContainer, ButtonContaioner, SignInButtonContainer} from "./styled"
 import logo from "../../assets/logo.png"
 import useForm from "../../hooks/useForm"
+import { login } from "../../services/users"
+import useUnprotectedPage from "../../hooks/useUnprotectedPage"
 
 
-const LoginPage = () => {
+const LoginPage = ({setRightButtonText}) => {
   const navigate = useNavigate()
-
+  useUnprotectedPage()
   const [form, onChange, clear] = useForm({email: "", password: ""})
+
   const onSubmitForm = (event) => {
     event.preventDefault()
+    login(form, clear, navigate, setRightButtonText)
   }
 
   return (
@@ -33,7 +37,7 @@ const LoginPage = () => {
             type={"email"}
           />
           <TextField 
-            name={"passwor"}
+            name={"password"}
             value={form.password}
             onChange={onChange}
             label={"Senha"}
