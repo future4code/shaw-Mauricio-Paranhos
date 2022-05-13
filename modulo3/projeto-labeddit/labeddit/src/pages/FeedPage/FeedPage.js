@@ -1,24 +1,47 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { goBack, goToLoginPage, goToPostPage, goToRegisterPage } from '../../routes/coordinator'
-import {Button} from "@material-ui/core"
-import { FeedPageComtainer, ButtonConteioner } from "./styled"
+import { goToPostPage } from '../../routes/coordinator'
+import { FeedPageComtainer, AddPostButton } from "./styled"
 import useProtectedPage from '../../hooks/useProtectedPage'
+import PostCard from '../../components/PostCard/PostCard'
+import useRequestData from '../../hooks/useRequestData'
+import { BASE_URL } from "../../constants/urls"
+import { Add } from '@material-ui/icons'
 
 const FeedPage = () => {
-  const navigate = useNavigate()
-
   useProtectedPage()
+  const navigate = useNavigate()
+  const posts = useRequestData([], `${BASE_URL}/posts`)
+  
+  const onClickCard = (id) => {
+    goToPostPage(navigate, id)
+  }
+
+  console.log(posts)
+
+  const cardsPost = posts.map((post) => {
+    return (
+      <PostCard
+        key={post.id}
+        title={post.title}
+        body={post.body}
+        username={post.username}
+        voteSum={post.voteSum}
+        commentCount={post.commentCount}
+        onClick={() => onClickCard(post.id)}
+      />
+    )
+  })
 
   return (
     <FeedPageComtainer>
-        <h1>FeedPage</h1>
-        <ButtonConteioner>
-          <Button variant="contained" color="primary" onClick={() => goToLoginPage(navigate)} >Login</Button>
-          <Button variant="contained" color="primary" onClick={() => goToPostPage(navigate)} >Post</Button>
-          <Button variant="contained" color="primary" onClick={() => goToRegisterPage(navigate)} >Register</Button>
-          <Button variant="contained" color="primary" onClick={() => goBack(navigate)} >Voltar</Button>
-        </ButtonConteioner>
+      {cardsPost}
+      <AddPostButton 
+        color={'primary'}
+        // onClick={()=>goToAddPostPage{navigate}}
+      >
+        <Add/>
+      </AddPostButton>
     </FeedPageComtainer>
   )
 }

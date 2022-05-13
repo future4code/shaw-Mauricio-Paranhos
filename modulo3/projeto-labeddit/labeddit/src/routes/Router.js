@@ -10,7 +10,7 @@ const Router = ({setRightButtonText}) => {
         <Routes>
             <Route index element={<LoginPage setRightButtonText={setRightButtonText} />} />
             <Route path="feed" element={<FeedPage />} />
-            <Route path="post" element={<PostPage />} />
+            <Route path="post/:id/comments" element={<PostPage />} />
             <Route path="register" element={<RegisterPage setRightButtonText={setRightButtonText} />} />
         </Routes>
     )

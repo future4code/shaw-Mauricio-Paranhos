@@ -69,13 +69,6 @@ const RegisterPage = ({setRightButtonText}) => {
           </Button>
         </form>
       </InputsContainer>
-
-      {/* <ButtonConteioner>
-          <Button variant="contained" color="primary" onClick={() => goToFeedPage(navigate)} >Feed</Button>
-          <Button variant="contained" color="primary" onClick={() => goToPostPage(navigate)} >Post</Button>
-          <Button variant="contained" color="primary" onClick={() => goToLoginPage(navigate)} >Login</Button>
-          <Button variant="contained" color="primary" onClick={() => goBack(navigate)} >Voltar</Button>
-        </ButtonConteioner> */}
     </RegisterPageComtainer>
   )
 }

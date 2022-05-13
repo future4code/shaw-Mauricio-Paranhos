@@ -72,12 +72,6 @@ const LoginPage = ({setRightButtonText}) => {
             Cadastre-se
           </Button>
       </SignInButtonContainer>
-      {/* <ButtonConteioner>
-          <Button variant="contained" color="primary" onClick={() => goToFeedPage(navigate)} >Feed</Button>
-          <Button variant="contained" color="primary" onClick={() => goToPostPage(navigate)} >Post</Button>
-          <Button variant="contained" color="primary" onClick={() => goToRegisterPage(navigate)} >Register</Button>
-          <Button variant="contained" color="primary" onClick={() => goBack(navigate)} >Voltar</Button>
-      </ButtonConteioner> */}
     </LoginPageComtainer>
   )
 }
