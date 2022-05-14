@@ -5,6 +5,7 @@ import useProtectedPage from '../../hooks/useProtectedPage'
 import { useParams } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
 import { BASE_URL } from '../../constants/urls'
+import PostCard from '../../components/PostCard/PostCard'
 
 
 const PostPage = () => {
@@ -19,7 +20,14 @@ const PostPage = () => {
     <ScreenContainer>
         {post && 
           <PostContainer>
-            <h1>{post && post.title}</h1>
+            <PostCard 
+            key={post.id}
+            title={post.title}
+            body={post.body}
+            username={post.username}
+            voteSum={post.voteSum}
+            commentCount={post.commentCount}
+            />
           </PostContainer>}
     </ScreenContainer>
   )
