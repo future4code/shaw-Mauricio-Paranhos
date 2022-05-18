@@ -1,11 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import {PostContainer, ScreenContainer} from "./styled"
+import {PostContainer, ScreenContainer, AddPostButton} from "./styled"
 import useProtectedPage from '../../hooks/useProtectedPage'
 import { useParams } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
 import { BASE_URL } from '../../constants/urls'
 import PostCard from '../../components/PostCard/PostCard'
+import { Add } from '@material-ui/icons'
 
 
 const PostPage = () => {
@@ -28,6 +29,12 @@ const PostPage = () => {
             voteSum={post.voteSum}
             commentCount={post.commentCount}
             />
+            <AddPostButton 
+              color={'primary'}
+              // onClick={()=>goToAddPostPage(navigate)}
+              >
+              <Add/>
+            </AddPostButton>
           </PostContainer>}
     </ScreenContainer>
   )

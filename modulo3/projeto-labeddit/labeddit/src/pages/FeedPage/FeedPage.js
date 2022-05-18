@@ -1,12 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { goToPostPage } from '../../routes/coordinator'
-import { FeedPageComtainer, AddPostButton } from "./styled"
+import { FeedPageComtainer } from "./styled"
 import useProtectedPage from '../../hooks/useProtectedPage'
 import PostCard from '../../components/PostCard/PostCard'
 import useRequestData from '../../hooks/useRequestData'
 import { BASE_URL } from "../../constants/urls"
-import { Add } from '@material-ui/icons'
 
 const FeedPage = () => {
   useProtectedPage()
@@ -36,12 +35,6 @@ const FeedPage = () => {
   return (
     <FeedPageComtainer>
       {cardsPost}
-      <AddPostButton 
-        color={'primary'}
-        // onClick={()=>goToAddPostPage{navigate}}
-      >
-        <Add/>
-      </AddPostButton>
     </FeedPageComtainer>
   )
 }
