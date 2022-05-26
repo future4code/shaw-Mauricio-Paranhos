@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node ./exercicio1.js"
+    "exe1": "node ./exercicio1.js",
+    "exe2": "node ./exercicio2.js",
+    "exe3": "node ./exercicio3.js"
   },
   "author": "Mauricio Paranhos",
   "license": "ISC"
