@@ -1,10 +1,5 @@
-const a = Number(process.argv[2])
 
-const b = Number(process.argv[3])
-
-const c = Number(process.argv[4])
-
-const checaTriangulo = (a: number, b: number, c: number): string => {
+function checaTriangulo (a: number, b: number, c: number): string {
 
   if (a !== b && b !== c) {
     return "Escaleno";
@@ -18,4 +13,4 @@ const checaTriangulo = (a: number, b: number, c: number): string => {
   }
 }
 
-console.log(checaTriangulo)
+console.log(checaTriangulo(20, 18, 15))
