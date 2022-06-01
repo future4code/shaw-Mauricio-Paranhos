@@ -1,16 +1,42 @@
 import express from "express"
-
-import { AddressInfo } from "net"
+import cors from "cors"
+import { afazeres } from "./data"
 
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
-const server = app.listen(process.env.PORT || 3003, () => {
-  if (server) {
-    const address = server.address() as AddressInfo;
-    console.log(`Server is running in http://localhost:3003`)
-  } else {
-    console.error(`Failure upon starting server.`)
-  }
+app.get("/ping", (req, res) => {          
+  res.send("Pong! 🏓")
+})
+
+type afazer = {
+  userId: string,
+  id: string,
+  title: string,
+  completed: boolean
+}
+
+app.get('/afazeres', (req, res) => {
+
+  const dos = afazeres.map((afazer) => {
+      return afazer
+  }).flat(1)
+
+  res.send(dos)
+});
+
+app.get("/afazeres/:completed", (req, res) => {          
+  const completado = req.params.completed
+
+  const userCompleted = afazeres.map((afazer) => {
+    return afazer.completed === completado
+  })
+
+res.send(userCompleted)
+})
+
+app.listen(3003, () => {
+  console.log("Server is running in http://localhost:3003")
 })
