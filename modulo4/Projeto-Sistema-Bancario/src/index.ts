@@ -10,13 +10,10 @@ app.use(cors())
 app.post("/users/create", (req:Request, res:Response)=>{
     try {
         const { name, CPF, dateOfBirthAsString } = req.body
-
         const [day, month, year] = dateOfBirthAsString.split("/")
-
         const dateOfBirth: Date = new Date(`${year}-${month}-${day}`)
 
         const ageInMilliseconds: number = Date.now() - dateOfBirth.getTime()
-
         const ageInYears: number = ageInMilliseconds / 1000 / 60 / 60 / 24 / 365
 
         if (ageInYears <18) {
