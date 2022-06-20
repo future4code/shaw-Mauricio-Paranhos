@@ -1,2 +1,17 @@
 GET http://localhost:3003/users
 
+###
+
+POST http://localhost:3003/users/create
+Content-Type: application/json
+
+{
+    "name": "Olivia",
+    "email": "oo@gmail.com",
+    "password": "senha456"
+}
+
+###
+
+DELETE http://localhost:3003/users/1655673295766
+
