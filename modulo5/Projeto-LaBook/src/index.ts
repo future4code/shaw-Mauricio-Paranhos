@@ -1,12 +1,35 @@
-import { app } from "./app"
-import { signup } from './endpoints/signup'
-import { createTask } from './endpoints/createTask'
-import { getTaskById } from './endpoints/getTaskById'
-import { login } from './endpoints/login'
+import { PostBusiness } from "./business/PostBusiness";
+import { UserBusiness } from "./business/UserBusiness";
+import { app } from "./controller/app";
+import { PostController } from "./controller/PostController";
+import { UserController } from "./controller/UserController";
+import { PostDatabase } from "./data/PostDatabase";
+import { UserDatabase } from "./data/UserDatabase";
+import { Authenticator } from "./services/Authenticator";
+import { HashManager } from "./services/HashManager";
+import { IdGenerator } from "./services/IdGenerator";
 
-app.post('/user/signup', signup)
-app.post('/user/login', login)
+const userController = new UserController(
+    new UserBusiness(
+        new IdGenerator(),
+        new HashManager(),
+        new UserDatabase(),
+        new Authenticator()
+    )
+)
 
-app.put('/task', createTask)
-app.get('/task/:id', getTaskById)
+const postController = new PostController(
+    new PostBusiness(
+        new IdGenerator(),
+        new PostDatabase(),
+        new Authenticator()
+    )
+)
 
+// Usuário
+app.post("/signup", userController.signUp)
+app.post("/login", userController.login)
+
+// Post
+app.post("/post", postController.createPost)
+app.get("/post/:id", postController.getPostById)
