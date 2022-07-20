@@ -1,9 +1,10 @@
+import { Button } from "@mui/material"
 import React from "react"
 
 const Login = () => {
     return(
         <div>
-            Login
+            <Button>Teste</Button>
         </div>
     )
 }

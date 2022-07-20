@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Login from "../Pages/Login/login"
-import SignUp from "../Pages/Feed/signUp"
-import SignUpAdress from "../Pages/Feed/signUpAdress"
+import SignUp from "../Pages/SignUp/signUp"
+import SignUpAdress from "../Pages/SignUpAdress/signUpAdress"
 import Feed from "../Pages/Feed/feed"
-import Restaurant from "../Pages/Feed/restaurant"
-import Cart from "../Pages/Feed/cart"
-import Profile from "../Pages/Feed/profile"
+import Restaurant from "../Pages/Restaurant/restaurant"
+import Cart from "../Pages/Cart/cart"
+import Profile from "../Pages/Profile/profile"
 
 const Router = () => {
     return(
