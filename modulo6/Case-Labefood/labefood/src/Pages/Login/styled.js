@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 import { Button } from '@mui/material'
+import TextField from '@mui/material/TextField'
+
+export const ImputMaterial = styled(TextField)`
+    width: 100%;
+`
 
 export const Main = styled.div`
     padding: 10px;
@@ -9,7 +14,7 @@ export const Main = styled.div`
     flex-direction: column;
     align-items: center;
     p{
-        font-size: 2rem;
+        font-size: 1rem;
     }
 `
 
@@ -27,4 +32,10 @@ export const ButtonStyled = styled(Button)`
         width: 100%;
         background-color: #E8222E;
     }
+`
+
+export const DivPassword = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `
