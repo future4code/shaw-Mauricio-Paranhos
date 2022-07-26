@@ -10,6 +10,6 @@ export const goToSignUp = (navigate) =>{
     navigate('/signUp')
 }
 
-export const goToSignUpAdress = (navigate) =>{
-    navigate('/signUp/adress')
+export const goToSignUpAddress = (navigate) =>{
+    navigate('/signUp/address')
 }
