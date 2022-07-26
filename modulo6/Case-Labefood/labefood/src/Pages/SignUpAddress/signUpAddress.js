@@ -3,12 +3,12 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../../Constants/url'
 import { useForm } from '../../Hooks/useForm'
-import { ButtonStyled, ImputMaterial, Main } from '../SignUpAdress/styled'
+import { ButtonStyled, ImputMaterial, Main } from './styled'
 import { goToFeed } from '../../Routes/coordinator'
 
 
 
-const SignUpAdress = () => {
+const SignUpAddress = () => {
 
     const { form, onChange, clean } = useForm({
         "street": "",
@@ -21,22 +21,22 @@ const SignUpAdress = () => {
 
     const navigate = useNavigate()
 
-    const onSubmitFormAdress = (event) => {
+    const onSubmitFormAddress = (event) => {
         event.preventDefault()
-        addAdress()
+        addAddress()
     }
 
 
-    const addAdress = async () => {
+    const addAddress = async () => {
         const token = localStorage.getItem('token')
 
-        await axios.put(`${BASE_URL}/adress`, form, {
+        await axios.put(`${BASE_URL}/address`, form, {
             headers: {
                 auth: token
             }
         })
             .then((res) => {
-                localStorage.getItem('token',res.data.token)
+                localStorage.setItem('token',res.data.token)
                 goToFeed(navigate)
             })
             .catch((err) => {
@@ -46,8 +46,8 @@ const SignUpAdress = () => {
 
     return (
         <Main>
-            <p>SignUpAdress</p>
-            <form onSubmit={onSubmitFormAdress}>
+            <p>SignUpAddress</p>
+            <form onSubmit={onSubmitFormAddress}>
                 <ImputMaterial
                     id="outlined-basic"
                     label={'Logradouro'}
@@ -119,4 +119,4 @@ const SignUpAdress = () => {
     )
 }
 
-export default SignUpAdress
+export default SignUpAddress
