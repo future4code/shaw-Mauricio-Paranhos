@@ -14,10 +14,12 @@ const Router = () => {
                 <Route index element={<Login/>}/>
                 <Route path='/signUp' element={<SignUp/>}/>
                 <Route path='/signUp/address' element={<SignUpAddress/>}/>
+                {/* <Route path='/addressEdit/:id' element={<AddressEdit/>}/> */}
                 <Route path='/feed' element={<Feed/>}/>
                 <Route path='/feed/:restaurantId' element={<Restaurant/>}/>
-                <Route path='/cart' element={<Cart/>}/>
                 <Route path='/profile' element={<Profile/>}/>
+                {/* <Route path='/profile/:id' element={<ProfileEdit/>}/> */}
+                <Route path='/cart' element={<Cart/>}/>
             </Routes>
         </BrowserRouter>
     )
