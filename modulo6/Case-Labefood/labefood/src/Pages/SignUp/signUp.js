@@ -7,7 +7,7 @@ import { IconButton } from '@mui/material'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import { useNavigate } from 'react-router-dom'
-import { goToSignUpAdress } from '../../Routes/coordinator'
+import { goToSignUpAddress } from '../../Routes/coordinator'
 
 const SignUp = () => {
 
@@ -59,7 +59,7 @@ const SignUp = () => {
             console.log(res.data)
             localStorage.setItem('token',res.data.token)
             alert(`Bem vindo ${res.data.user.name}`)
-            goToSignUpAdress(navigate)
+            goToSignUpAddress(navigate)
         })
         .catch((err) => {
             alert(err.response)
