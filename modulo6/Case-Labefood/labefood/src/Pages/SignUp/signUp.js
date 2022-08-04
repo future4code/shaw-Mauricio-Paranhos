@@ -3,6 +3,7 @@ import axios from 'axios'
 import { BASE_URL } from '../../Constants/url'
 import { useForm } from '../../Hooks/useForm'
 import { Main, ButtonStyled, DivPassword, ImputMaterial } from './styled'
+import Header from '../../Components/Header/Header'
 import { IconButton } from '@mui/material'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
@@ -70,6 +71,7 @@ const SignUp = () => {
 
     return(
         <Main>
+            <Header back/>
             <p>Cadastrar</p>
             <form onSubmit={onSubmitForm}>
                 <ImputMaterial

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import Header from '../../Components/Header/Header'
 import { useParams } from 'react-router-dom'
 import { BASE_URL } from '../../Constants/url'
 import { ContainerRestaurant, CardRestaurant, SectionProductByCategory, Category } from './styled'
 import CardRestaurantDetails from '../../Components/CardRestaurantDetails/CardRestaurantDetails'
 import CardProduct from '../../Components/CardProduct/CardProduct'
+import { useGlobal } from '../../Context/Global/GlobalStateContext'
 
 const Restaurant = () => {
     const {restaurantId} = useParams()
@@ -43,6 +45,7 @@ const Restaurant = () => {
 
     return(
         <ContainerRestaurant>
+            <Header title={"Restaurante"} back />
             <CardRestaurant>
             <CardRestaurantDetails restaurant={restaurant} />
             {
@@ -57,7 +60,11 @@ const Restaurant = () => {
                                 return product.category === category
                             })
                             .map((product) => {
-                                return <CardProduct product={product} key={product.id} />
+                                return <CardProduct 
+                                    product={product} 
+                                    key={product.id}
+                                    restaurant={restaurant}
+                                />
                             })
                         }
                     </SectionProductByCategory>

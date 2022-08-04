@@ -4,6 +4,7 @@ import { BASE_URL } from '../../Constants/url'
 import { ContainerFeed, CardsRestaurant, InputSearch, BoxInputSearch, Menu, MenuItem } from './styled'
 import CardRestaurant from '../../Components/CardRestaurant/CardRestaurant'
 import Header from '../../Components/Header/Header'
+import MenuNav from '../../Components/Menu/MenuNav'
 
 const Feed = () => {
 
@@ -20,7 +21,6 @@ const Feed = () => {
             }
         })
         .then((res) => {
-            console.log(res.data)
             setRestaurants(res.data.restaurants)
             filterCategory(res.data.restaurants)
         })
@@ -109,6 +109,7 @@ const Feed = () => {
                     filterRestaurant
                 }
             </CardsRestaurant>
+            <MenuNav page={"feed"} />
         </ContainerFeed>
     )
 }

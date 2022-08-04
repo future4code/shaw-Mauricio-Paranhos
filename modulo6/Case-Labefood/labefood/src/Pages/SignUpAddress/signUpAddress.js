@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../../Constants/url'
 import { useForm } from '../../Hooks/useForm'
+import Header from '../../Components/Header/Header'
 import { ButtonStyled, ImputMaterial, Main } from './styled'
 import { goToFeed } from '../../Routes/coordinator'
 
@@ -46,6 +47,7 @@ const SignUpAddress = () => {
 
     return (
         <Main>
+            <Header back/>
             <p>SignUpAddress</p>
             <form onSubmit={onSubmitFormAddress}>
                 <ImputMaterial
