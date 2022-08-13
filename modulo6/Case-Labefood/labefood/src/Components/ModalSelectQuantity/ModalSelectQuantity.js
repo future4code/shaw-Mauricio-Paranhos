@@ -4,6 +4,7 @@ import { BoxModal, ButtonAddToCart, SelectQuantity, TitleModal } from './styled'
 
 
 const ModalSelectQuantity = ({open, setOpen, chooseQuantity}) => {
+  
   const [quantity, setQuantity] = useState(1)
 
   return (

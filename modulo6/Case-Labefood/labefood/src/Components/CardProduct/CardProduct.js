@@ -18,11 +18,11 @@ import { useGlobal } from "../../Context/Global/GlobalStateContext"
 const CardProduct = ({ product, restaurant }) => {
     const [showModal, setShowModal] = useState(false)
     const {requests, states} = useGlobal()
-    const { addToCart, removeToCart } = requests
+    const { addItemCart, removeItemCart } = requests
     const {cart} = states
 
     const chooseQuantity = (quantity) => {
-        addToCart(product, quantity, restaurant)
+        addItemCart(product, quantity, restaurant)
         setShowModal(false)
     }
 
@@ -44,7 +44,7 @@ const CardProduct = ({ product, restaurant }) => {
                 </InformPrice>
                 {
                 productInCart?
-                 <InformRemoveItemButton onClick={() => removeToCart(product.id)} >
+                 <InformRemoveItemButton onClick={() => removeItemCart(product.id)} >
                      Remover
                  </InformRemoveItemButton>
                 :

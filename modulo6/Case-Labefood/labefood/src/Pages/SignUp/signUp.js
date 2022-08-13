@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../../Constants/url'
 import { useForm } from '../../Hooks/useForm'
-import { Main, ButtonStyled, DivPassword, ImputMaterial } from './styled'
+import { Main, ButtonStyled, DivPassword, ImputMaterial, Title } from './styled'
 import Header from '../../Components/Header/Header'
 import { IconButton } from '@mui/material'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import { useNavigate } from 'react-router-dom'
 import { goToSignUpAddress } from '../../Routes/coordinator'
+import Logo from '../../Components/Logo/Logo'
 
 const SignUp = () => {
 
@@ -72,7 +73,8 @@ const SignUp = () => {
     return(
         <Main>
             <Header back/>
-            <p>Cadastrar</p>
+            <Logo />
+            <Title>Cadastrar</Title>
             <form onSubmit={onSubmitForm}>
                 <ImputMaterial
                     id="outlined-basic"

@@ -58,6 +58,7 @@ export const CartInfo = styled.div`
 export const EmptyCart = styled.p`
     font-size: 3rem;
     text-align: center;
+    margin-bottom: 2rem;
 `
 
 export const Payment = styled.div`
@@ -83,7 +84,7 @@ export const Total = styled.div`
     margin: 5px;
     p:nth-child(2){
         color: red;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 `
 
@@ -94,7 +95,7 @@ export const Form = styled.form`
         margin: 5px;
     }
     label{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         text-transform: uppercase;
     }
     input{

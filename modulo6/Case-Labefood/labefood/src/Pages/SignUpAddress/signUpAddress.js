@@ -6,10 +6,12 @@ import { useForm } from '../../Hooks/useForm'
 import Header from '../../Components/Header/Header'
 import { ButtonStyled, ImputMaterial, Main } from './styled'
 import { goToFeed } from '../../Routes/coordinator'
+import { useProtectedPage } from '../../Hooks/useProtectedPage'
 
 
 
 const SignUpAddress = () => {
+    useProtectedPage()
 
     const { form, onChange, clean } = useForm({
         "street": "",

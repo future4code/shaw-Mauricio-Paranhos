@@ -10,8 +10,8 @@ const CardRestaurantDetails = ({restaurant}) => {
         <NameRestaurant>{restaurant.name}</NameRestaurant>
         <Inform>{restaurant.category}</Inform>
         <BoxInformTimePrice>
-            <Inform>{restaurant.deliveryTime}</Inform>
-            <Inform>{restaurant.shipping}</Inform>
+            <Inform>{restaurant.deliveryTime}min.</Inform>
+            <Inform>Frete: {restaurant.shipping}</Inform>
         </BoxInformTimePrice>
         <Inform>{restaurant.address}</Inform>
     </ContainerCardRestaurantDetails>

@@ -6,9 +6,12 @@ import { BASE_URL } from '../../Constants/url'
 import { ContainerRestaurant, CardRestaurant, SectionProductByCategory, Category } from './styled'
 import CardRestaurantDetails from '../../Components/CardRestaurantDetails/CardRestaurantDetails'
 import CardProduct from '../../Components/CardProduct/CardProduct'
-import { useGlobal } from '../../Context/Global/GlobalStateContext'
+// import { useGlobal } from '../../Context/Global/GlobalStateContext'
+import { useProtectedPage } from '../../Hooks/useProtectedPage'
 
 const Restaurant = () => {
+    useProtectedPage()
+
     const {restaurantId} = useParams()
     const [restaurant, setRestaurant] = useState({})
     const [categories, setCategories] = useState([])
@@ -27,6 +30,7 @@ const Restaurant = () => {
             console.log(err.response)
         })
     }
+    
     useEffect(() => {
         getRestaurant()
     }, [])
@@ -34,7 +38,7 @@ const Restaurant = () => {
     useEffect(() => {
         if (restaurant.products) {
             const newCategories = []
-            for(const product of restaurant.products) {
+            for (const product of restaurant.products) {
                 if (!newCategories.includes(product.category)) {
                     newCategories.push(product.category)    
                 }
@@ -60,10 +64,7 @@ const Restaurant = () => {
                                 return product.category === category
                             })
                             .map((product) => {
-                                return <CardProduct 
-                                    product={product} 
-                                    key={product.id}
-                                    restaurant={restaurant}
+                                return <CardProduct product={product} key={product.id} restaurant={restaurant}
                                 />
                             })
                         }

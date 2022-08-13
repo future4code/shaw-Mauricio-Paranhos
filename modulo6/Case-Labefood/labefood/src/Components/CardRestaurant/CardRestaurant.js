@@ -9,8 +9,8 @@ const CardRestaurant = ({restaurant}) => {
         <ImageRestaurant src={restaurant.logoUrl} alt={`Logo ${restaurant.name}`} />
         <NameRestaurant>{restaurant.name}</NameRestaurant>
         <BoxInformTimePrice>
-            <InformTimePrice>{restaurant.deliveryTime}</InformTimePrice>
-            <InformTimePrice>{restaurant.shipping}</InformTimePrice>
+            <InformTimePrice>{restaurant.deliveryTime}min.</InformTimePrice>
+            <InformTimePrice>Frete: {restaurant.shipping}</InformTimePrice>
         </BoxInformTimePrice>
     </ContainerCardRestaurant>
 }

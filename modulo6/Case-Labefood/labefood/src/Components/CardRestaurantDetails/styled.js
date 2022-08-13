@@ -7,9 +7,10 @@ export const ContainerCardRestaurantDetails = styled.div`
 
 export const ImageRestaurant = styled.img`
     width: 100%;
-    height: 7.5rem;
+    height: 15rem;
     margin-bottom: 1rem;
     border-radius: 7px 7px 0 0;
+    object-fit: fill;
 `
 
 export const NameRestaurant = styled.h3`
@@ -26,6 +27,7 @@ export const NameRestaurant = styled.h3`
 
 export const BoxInformTimePrice = styled.div`
     display: flex;
+    justify-content: space-between;
 `
 
 export const Inform = styled.p`

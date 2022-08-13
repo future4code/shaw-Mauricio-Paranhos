@@ -5,14 +5,21 @@ import { ContainerFeed, CardsRestaurant, InputSearch, BoxInputSearch, Menu, Menu
 import CardRestaurant from '../../Components/CardRestaurant/CardRestaurant'
 import Header from '../../Components/Header/Header'
 import MenuNav from '../../Components/Menu/MenuNav'
+import Order from '../../Components/Order/Order'
+import { useGlobal } from '../../Context/Global/GlobalStateContext'
+import { useProtectedPage } from '../../Hooks/useProtectedPage'
 
 const Feed = () => {
+    useProtectedPage()
 
     const [restaurants, setRestaurants] = useState([])
     const [categoryRestaurant,setCategoryRestaurant] = useState([])
     const [valueCategory,setValueCategory] = useState("")
-
     const  [inputText,setInputText] = useState("")
+    
+    const { setters, states } = useGlobal()
+    const { setOrder } = setters
+    const { order } = states
 
     const getRestaurants = () => {
         axios.get(`${BASE_URL}/restaurants`, {
@@ -44,9 +51,28 @@ const Feed = () => {
         })
         setCategoryRestaurant(changeObjectArray)
     }
-    
+
+    const getOrder = () => {
+        axios.get(`${BASE_URL}/active-order`, {
+            headers: {
+                auth: localStorage.getItem('token')
+            }
+        })
+        .then((res) => {
+            setOrder(res.data.order)
+            const expiresAt = res.data.order.expiresAt
+            setTimeout(() => {
+                getOrder()
+            }, expiresAt - new Date().getTime())
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+    console.log(order) 
     useEffect(() => {
         getRestaurants()
+        getOrder()
     }, [])
 
     const filterRestaurant = restaurants
@@ -59,7 +85,7 @@ const Feed = () => {
         .map((restaurant) => {
             return <CardRestaurant restaurant={restaurant} />
         })
-
+console.log(restaurants)
     const changeCategory = (category)=>{
         setValueCategory(category)
 
@@ -110,6 +136,10 @@ const Feed = () => {
                 }
             </CardsRestaurant>
             <MenuNav page={"feed"} />
+            {order && <Order 
+                restaurantName={order.restaurantName} 
+                totalPrice={order.totalPrice} 
+            />}
         </ContainerFeed>
     )
 }
