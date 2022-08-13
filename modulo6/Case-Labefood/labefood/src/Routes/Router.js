@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from '../Pages/Login/login'
 import SignUp from '../Pages/SignUp/signUp'
-import SignUpAdress from '../Pages/SignUpAdress/signUpAdress'
+import SignUpAddress from '../Pages/SignUpAddress/signUpAddress'
 import Feed from '../Pages/Feed/feed'
 import Restaurant from '../Pages/Restaurant/restaurant'
 import Cart from '../Pages/Cart/cart'
@@ -13,7 +13,7 @@ const Router = () => {
             <Routes>
                 <Route index element={<Login/>}/>
                 <Route path='/signUp' element={<SignUp/>}/>
-                <Route path='/signUp/adress' element={<SignUpAdress/>}/>
+                <Route path='/signUp/address' element={<SignUpAddress/>}/>
                 <Route path='/feed' element={<Feed/>}/>
                 <Route path='/feed/:restaurantId' element={<Restaurant/>}/>
                 <Route path='/cart' element={<Cart/>}/>
