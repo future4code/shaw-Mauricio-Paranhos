@@ -6,21 +6,13 @@ export const Main = styled.div`
     height: 100%;
 `
 
-export const MainCart = styled.div`
-    display: flex;
-    height: 5%;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-`
-
 export const CartConfig = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 `
 
 export const InfoProfile = styled.div`
@@ -31,10 +23,12 @@ export const InfoProfile = styled.div`
     justify-content: center;
     margin-top: 5px;
     width: 100%;
-    height: 10%;
+    /* height: 10%; */
     font-size: 1.2rem;
-    background-color: lightgray;
-    width: 100%;
+    background-color: #eeeeee;
+    p:nth-child(1){
+        color: #b8b8b8;
+    }
 `
 
 export const  InfoRestaurant = styled.div`
@@ -53,6 +47,7 @@ export const CartInfo = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    /* height: 100vh; */
 `
 
 export const EmptyCart = styled.p`
@@ -65,7 +60,7 @@ export const Payment = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 
     p,label{
         font-size: 1.2rem;
@@ -80,10 +75,10 @@ export const Freight = styled.p`
 
 export const Total = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     margin: 5px;
     p:nth-child(2){
-        color: red;
+        color: #e86e5a;
         font-size: 1.2rem;
     }
 `

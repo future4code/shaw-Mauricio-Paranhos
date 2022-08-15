@@ -109,13 +109,12 @@ console.log(cart)
                     }) : <EmptyCart>Carrinho vazio</EmptyCart>}
                 </CartInfo>
                 <Payment>
-                    <Freight>Frete {new Intl.NumberFormat('pt-BR', {
+                    <Freight>Frete: {new Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
                     }).format(restaurant.shipping ? restaurant.shipping : 0)}</Freight>
                     <Total>
-                        <p>Subtotal</p>
-                        <p>{new Intl.NumberFormat('pt-BR', {
+                        <p>Subtotal: {new Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
                     }).format(fullPrice)}</p>
