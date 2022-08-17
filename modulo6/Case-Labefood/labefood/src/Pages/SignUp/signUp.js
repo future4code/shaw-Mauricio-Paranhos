@@ -64,7 +64,7 @@ const SignUp = () => {
             goToSignUpAddress(navigate)
         })
         .catch((err) => {
-            alert(err.response)
+            alert(err.message)
             clean()
             setConfirmPassword('')
         })

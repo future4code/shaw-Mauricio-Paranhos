@@ -4,11 +4,12 @@ import MenuNav from '../../Components/Menu/MenuNav'
 import { useProtectedPage } from '../../Hooks/useProtectedPage'
 import { useRequestData } from '../../Hooks/useRequestData'
 import { BASE_URL } from '../../Constants/url'
-import { Main, ProfileInfo, PersonProfile, PersonAddress, LogOutDiv, OrdersHistory, Title } from './styled'
+import { Main, ProfileInfo, PersonProfile, PersonAddress, LogOutDiv, OrdersHistory, Title, EditDiv } from './styled'
 import { goToProfileEdit, goToAddressEdit, goToLogin } from '../../Routes/coordinator'
 import { useNavigate } from 'react-router-dom'
 import CardOrderHistory from '../../Components/CardOrderHistory/cardOrderHistory'
 import LogoutIcon from '@mui/icons-material/Logout'
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 const Profile = () => {
     useProtectedPage()
@@ -36,14 +37,18 @@ const Profile = () => {
                         <p>{person[0].user && person[0].user.email}</p>
                         <p>{person[0].user && person[0].user.cpf}</p>
                     </div>
-                    <div onClick={()=> goToProfileEdit(navigate, person[0].user.id)}>Editar</div>
+                    <div>
+                    <EditOutlinedIcon onClick={()=> goToProfileEdit(navigate, person[0].user.id)} />
+                    </div>
                 </PersonProfile>
                 <PersonAddress>
                     <div>
                         <h4>Endereço cadastrado</h4>
                         <p>{person[0].user && person[0].user.address}</p>
                     </div>
-                    <div onClick={()=> goToAddressEdit(navigate, person[0].user.id)}>Editar</div>
+                    <div>
+                        <EditOutlinedIcon onClick={()=> goToAddressEdit(navigate, person[0].user.id)} />
+                    </div>
                 </PersonAddress>
                 <OrdersHistory>
                     <Title>Histórico de compras:</Title>
@@ -56,7 +61,7 @@ const Profile = () => {
                                 createdAt={order.createdAt}
                             />
                         )
-                    }):<p>Você não realizou nenmhum pedido</p>}
+                    }):<p>Você ainda não realizou nenmhum pedido</p>}
                 </OrdersHistory>
             </ProfileInfo>
             <MenuNav page={"profile"} />

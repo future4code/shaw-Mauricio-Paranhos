@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Main = styled.div`
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
 `
 
 export const ProfileInfo = styled.div`
@@ -68,8 +68,12 @@ export const Title = styled.div`
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.39px;
-    text-align: center;
+    text-align: start;
     grid-column-start: 2;
+    width: 90vw;
+    padding: 1%;
+    border-bottom: 1px solid black;
+    margin-bottom: 3%;
 `
 
 export const LogOutDiv = styled.div`

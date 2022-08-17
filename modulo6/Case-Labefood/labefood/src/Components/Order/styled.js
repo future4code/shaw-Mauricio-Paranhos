@@ -8,7 +8,7 @@ export const OrderContainer = styled.nav`
     position: fixed;
     bottom: 3.062rem;
     width: 100%;
-    background-color: red;
+    background-color: #e86e5a;
     z-index: 2;
     padding: 0 0 0 2rem;
 `
@@ -31,7 +31,7 @@ export const Title = styled.h3`
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.39px;
-    color: #000;
+    color: #ffffff;
     padding: 0.25rem;
 `
 
@@ -43,7 +43,7 @@ export const RestaurantName = styled.p`
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.39px;
-    color: #000;
+    color: #000000;
     padding: 0.25rem;
 `
 
@@ -56,4 +56,5 @@ export const TotalPrice = styled.p`
     line-height: normal;
     letter-spacing: -0.39px;
     padding: 0.25rem;
+    color: #000000;
 `
