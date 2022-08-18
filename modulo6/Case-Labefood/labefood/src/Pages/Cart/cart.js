@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Header from '../../Components/Header/Header'
-import { Button } from '@mui/material'
 import { useRequestData } from '../../Hooks/useRequestData'
 import { BASE_URL } from '../../Constants/url'
 import MenuNav from '../../Components/Menu/MenuNav'
@@ -18,7 +17,9 @@ import {
     EmptyCart, 
     Freight, 
     Total, 
-    Form 
+    Form, 
+    Title,
+    ButtonStyled
 } from './styled'
 import { useNavigate } from 'react-router-dom'
 import { goToFeed } from '../../Routes/coordinator'
@@ -93,9 +94,9 @@ console.log(cart)
                     <p>{profile[0].user && profile[0].user.address}</p>
                 </InfoProfile>
                 <InfoRestaurant>
-                    <p>{restaurant.name}</p>
-                    <p>{restaurant.address}</p>
-                    <p>{restaurant.deliveryTime} min</p>
+                    <p>{restaurant.shipping && cart.length > 0 ? restaurant.name : ''}</p>
+                    <p>{restaurant.shipping && cart.length > 0 ? restaurant.address : ''}</p>
+                    <p>{restaurant.shipping && cart.length > 0 ? restaurant.deliveryTime : ''} min</p>
                 </InfoRestaurant>
                 <CartInfo>
                     {restaurant.shipping && cart.length > 0 ? cart.map((product) => {
@@ -112,15 +113,15 @@ console.log(cart)
                     <Freight>Frete: {new Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
-                    }).format(restaurant.shipping ? restaurant.shipping : 0)}</Freight>
+                    }).format(restaurant.shipping ? restaurant.shipping : 0)}
+                    </Freight>
                     <Total>
-                        <p>Subtotal: {new Intl.NumberFormat('pt-BR', {
+                        Subtotal: <p>{new Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
                     }).format(fullPrice)}</p>
                     </Total>
-                    <h1>Forma de pagamento</h1>
-                    <hr />
+                    <Title>Forma de pagamento</Title>
                     <Form onSubmit={onSubmitPlaceOrder}>
                         {paymentMethod.map((key) => {
                             return (
@@ -136,8 +137,8 @@ console.log(cart)
                                 </div>
                             )
                         })}
-                        <Button type='submit'>Confirmar</Button>
                     </Form>
+                    <ButtonStyled type='submit'>Confirmar</ButtonStyled>
                 </Payment>
             </CartConfig>
 

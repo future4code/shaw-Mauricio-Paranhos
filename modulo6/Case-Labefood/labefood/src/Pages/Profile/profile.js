@@ -4,7 +4,7 @@ import MenuNav from '../../Components/Menu/MenuNav'
 import { useProtectedPage } from '../../Hooks/useProtectedPage'
 import { useRequestData } from '../../Hooks/useRequestData'
 import { BASE_URL } from '../../Constants/url'
-import { Main, ProfileInfo, PersonProfile, PersonAddress, LogOutDiv, OrdersHistory, Title, EditDiv } from './styled'
+import { Main, ProfileInfo, PersonProfile, PersonAddress, LogOutDiv, OrdersHistory, Title, DivInfo, DivIcon } from './styled'
 import { goToProfileEdit, goToAddressEdit, goToLogin } from '../../Routes/coordinator'
 import { useNavigate } from 'react-router-dom'
 import CardOrderHistory from '../../Components/CardOrderHistory/cardOrderHistory'
@@ -32,23 +32,23 @@ const Profile = () => {
             </LogOutDiv>
             <ProfileInfo>
                 <PersonProfile>
-                    <div>
+                    <DivInfo>
                         <p>{person[0].user && person[0].user.name}</p>
                         <p>{person[0].user && person[0].user.email}</p>
                         <p>{person[0].user && person[0].user.cpf}</p>
-                    </div>
-                    <div>
+                    </DivInfo>
+                    <DivIcon>
                     <EditOutlinedIcon onClick={()=> goToProfileEdit(navigate, person[0].user.id)} />
-                    </div>
+                    </DivIcon>
                 </PersonProfile>
                 <PersonAddress>
-                    <div>
-                        <h4>Endereço cadastrado</h4>
+                    <DivInfo>
+                        Endereço cadastrado
                         <p>{person[0].user && person[0].user.address}</p>
-                    </div>
-                    <div>
+                    </DivInfo>
+                    <DivIcon>
                         <EditOutlinedIcon onClick={()=> goToAddressEdit(navigate, person[0].user.id)} />
-                    </div>
+                    </DivIcon>
                 </PersonAddress>
                 <OrdersHistory>
                     <Title>Histórico de compras:</Title>

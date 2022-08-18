@@ -15,41 +15,33 @@ export const ProfileInfo = styled.div`
 export const PersonProfile = styled.div`
     display: flex;
     justify-content: space-between;
-    div:nth-child(1) {
-        width: 80%;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-    }
-    div:nth-child(2) {
-        width: 20%;
-        height: auto;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        cursor: pointer;
-    }
 `
 
 export const PersonAddress = styled.div`
-    height: 10%;
-    background-color: lightgray;
     display: flex;
     justify-content: space-between;
-    div:nth-child(1) {
-        width: 80%;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+    background-color: #eeeeee;
+`
+
+export const DivInfo = styled.div`
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    color: #b8b8b8;
+    p{
+        color: #000;
     }
-    div:nth-child(2) {
-        width: 20%;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        cursor: pointer;
-    }
+`
+
+export const DivIcon = styled.div`
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
 `
 
 export const OrdersHistory = styled.div`
