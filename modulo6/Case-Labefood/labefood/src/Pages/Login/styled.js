@@ -32,7 +32,7 @@ export const ButtonStyled = styled(Button)`
     &&{
         color: #000;
         width: 100%;
-        background-color: #E8222E;
+        background-color: #e86e5a;
     }
 `
 

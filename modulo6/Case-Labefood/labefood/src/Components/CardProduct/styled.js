@@ -18,11 +18,11 @@ export const QuantityProduct = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px red;
+    border: solid 1px #e86e5a;
     width: 2.063rem;
     height: 2.063rem;
     border-radius: 8px 0 8px 0;
-    color: red;
+    color: #e86e5a;
 `
 
 export const BoxNameQuantity = styled.div`
@@ -82,6 +82,6 @@ export const InformAddItemButton = styled.button`
 `
 
 export const InformRemoveItemButton = styled(InformAddItemButton)`
-    border: 1px solid red;
-    color: red;
+    border: 1px solid #e86e5a;
+    color: #e86e5a;
 `

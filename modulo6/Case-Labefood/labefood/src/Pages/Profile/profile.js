@@ -61,7 +61,7 @@ const Profile = () => {
                                 createdAt={order.createdAt}
                             />
                         )
-                    }):<p>Você ainda não realizou nenmhum pedido</p>}
+                    }):<p>Você não realizou nenhum pedido</p>}
                 </OrdersHistory>
             </ProfileInfo>
             <MenuNav page={"profile"} />

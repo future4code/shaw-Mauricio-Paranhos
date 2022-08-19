@@ -10,6 +10,13 @@ export const ProfileInfo = styled.div`
     display: flex;
     flex-direction: column;
     height: 100vh;
+    font-family: Roboto;
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
 `
 
 export const PersonProfile = styled.div`
@@ -21,11 +28,18 @@ export const PersonAddress = styled.div`
     display: flex;
     justify-content: space-between;
     background-color: #eeeeee;
+    font-family: Roboto;
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
 `
 
 export const DivInfo = styled.div`
     width: 80%;
-    padding: 10px;
+    padding: 3%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -50,6 +64,16 @@ export const OrdersHistory = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 1rem;
+    font-family: Roboto;
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    p{
+        margin-top: 3%;
+    }
 `
 
 export const Title = styled.div`
@@ -72,10 +96,15 @@ export const LogOutDiv = styled.div`
     display: flex;
     justify-content: start;
     align-items: center;
-    margin-bottom: 10px;
-    margin-top: 5px;
+    margin: 2%;
     p,label{
-        font-size: 1.2rem;
-        margin-left: 5px;
+        font-family: Roboto;
+        font-size: 1.1rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.39px;
+        margin-left: 2%;
     }
 `

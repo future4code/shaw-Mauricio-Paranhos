@@ -1,5 +1,5 @@
 import React from 'react'
-import { Cost, Main, NameRestaurant } from './styled'
+import { Cost, DateDiv, Main, NameRestaurant } from './styled'
 
 const convertDate = (timeStamp) => {
     let time = new Date(timeStamp)
@@ -14,7 +14,7 @@ const CardOrderHistory = (props) => {
     return(
         <Main>
             <NameRestaurant>{props.restaurantName}</NameRestaurant>
-            <p>{convertDate(props.createdAt)}</p>
+            <DateDiv>{convertDate(props.createdAt)}</DateDiv>
             <Cost>Subtotal:{new Intl.NumberFormat('pt-BR', {
                     style: 'currency',
                     currency: 'BRL'

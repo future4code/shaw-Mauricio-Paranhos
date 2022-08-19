@@ -22,7 +22,13 @@ export const InfoProfile = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 3%;
-    font-size: 1.2rem;
+    font-family: Roboto;
+    font-size: 1.1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
     background-color: #eeeeee;
     p:nth-child(1){
         color: #b8b8b8;
@@ -33,11 +39,30 @@ export const  InfoRestaurant = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-size: 1.2rem;
+    font-family: Roboto;
+    font-size: 1.1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
     padding: 3%;
     p:nth-child(1){
         color: #e86e5a;
     }
+`
+
+export const ShippingTime = styled.div`
+    display: flex;
+    width: 100%;
+    padding: 3%;
+    font-family: Roboto;
+    font-size: 1.1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
 `
 
 export const CartInfo = styled.div`
@@ -50,7 +75,13 @@ export const CartInfo = styled.div`
 `
 
 export const EmptyCart = styled.p`
+    font-family: Roboto;
     font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
     text-align: center;
     margin-bottom: 5%;
 `
@@ -60,25 +91,33 @@ export const Payment = styled.div`
     flex-direction: column;
     width: 100%;
     height: 100vh;
-
+    
     p,label{
-        font-size: 1.2rem;
+        font-family: Roboto;
+        font-size: 1.1rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.39px;
     }
 `
 
 export const Freight = styled.p`
     display: flex;
     justify-content: flex-end;
-    margin: 5px;
+    margin: 3%;
 `
 
 export const Total = styled.div`
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     margin: 3%;
-    color: #000;
-    font-size: 1.2rem;
     p:nth-child(1){
+        color: #000;
+        font-size: 1.2rem;
+    }
+    p:nth-child(2){
         color: #e86e5a;
         font-size: 1.2rem;
     }
@@ -123,6 +162,10 @@ export const ButtonStyled = styled(Button)`
     &&{
         font-family: Roboto;
         font-size: 1rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
         letter-spacing: -0.39px;
         text-align: center;
         color: #000;

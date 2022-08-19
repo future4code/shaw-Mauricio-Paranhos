@@ -11,7 +11,10 @@ const CardRestaurantDetails = ({restaurant}) => {
         <Inform>{restaurant.category}</Inform>
         <BoxInformTimePrice>
             <Inform>{restaurant.deliveryTime}min.</Inform>
-            <Inform>Frete: {restaurant.shipping}</Inform>
+            <Inform>Frete: {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(restaurant.shipping)}</Inform>
         </BoxInformTimePrice>
         <Inform>{restaurant.address}</Inform>
     </ContainerCardRestaurantDetails>

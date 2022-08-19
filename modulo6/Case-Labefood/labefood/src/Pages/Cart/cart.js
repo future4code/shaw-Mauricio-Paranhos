@@ -19,7 +19,8 @@ import {
     Total, 
     Form, 
     Title,
-    ButtonStyled
+    ButtonStyled,
+    ShippingTime
 } from './styled'
 import { useNavigate } from 'react-router-dom'
 import { goToFeed } from '../../Routes/coordinator'
@@ -96,8 +97,12 @@ console.log(cart)
                 <InfoRestaurant>
                     <p>{restaurant.shipping && cart.length > 0 ? restaurant.name : ''}</p>
                     <p>{restaurant.shipping && cart.length > 0 ? restaurant.address : ''}</p>
-                    <p>{restaurant.shipping && cart.length > 0 ? restaurant.deliveryTime : ''} min</p>
+                    
                 </InfoRestaurant>
+                <ShippingTime>
+                    <p>{restaurant.shipping && cart.length > 0 ? restaurant.deliveryTime : ''}</p>
+                    <p>{restaurant.shipping && cart.length > 0 ? 'min.' : ''}</p>
+                </ShippingTime>
                 <CartInfo>
                     {restaurant.shipping && cart.length > 0 ? cart.map((product) => {
                         return (
@@ -113,13 +118,13 @@ console.log(cart)
                     <Freight>Frete: {new Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
-                    }).format(restaurant.shipping ? restaurant.shipping : 0)}
+                    }).format(restaurant.shipping && cart.length > 0 ? restaurant.shipping : 0)}
                     </Freight>
                     <Total>
-                        Subtotal: <p>{new Intl.NumberFormat('pt-BR', {
+                        <p>SUBTOTAL:</p> <p>{new Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
-                    }).format(fullPrice)}</p>
+                    }).format(restaurant.shipping && cart.length > 0 ? fullPrice : 0)}</p>
                     </Total>
                     <Title>Forma de pagamento</Title>
                     <Form onSubmit={onSubmitPlaceOrder}>

@@ -26,8 +26,10 @@ export const NameRestaurant = styled.h3`
 `
 
 export const BoxInformTimePrice = styled.div`
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: flex-start;
 `
 
 export const Inform = styled.p`
