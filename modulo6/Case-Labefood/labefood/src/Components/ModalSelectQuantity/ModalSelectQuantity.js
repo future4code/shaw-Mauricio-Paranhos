@@ -32,6 +32,7 @@ const ModalSelectQuantity = ({open, setOpen, chooseQuantity}) => {
               <option>7</option>
               <option>8</option>
               <option>9</option>
+              <option>10</option>
             </SelectQuantity>
             <ButtonAddToCart onClick={() => chooseQuantity(Number(quantity))} >
               Adicionar ao carrinho

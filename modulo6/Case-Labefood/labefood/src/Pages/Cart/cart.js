@@ -142,8 +142,8 @@ console.log(cart)
                                 </div>
                             )
                         })}
+                        <ButtonStyled type='submit'>Confirmar</ButtonStyled>
                     </Form>
-                    <ButtonStyled type='submit'>Confirmar</ButtonStyled>
                 </Payment>
             </CartConfig>
 

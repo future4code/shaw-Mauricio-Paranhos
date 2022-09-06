@@ -55,7 +55,7 @@ const Feed = () => {
     const getOrder = () => {
         axios.get(`${BASE_URL}/active-order`, {
             headers: {
-                auth: localStorage.getItem('token')
+                auth: window.localStorage.getItem('token')
             }
         })
         .then((res) => {

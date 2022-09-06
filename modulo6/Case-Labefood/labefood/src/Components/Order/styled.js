@@ -18,6 +18,7 @@ export const OrderContainerSpace = styled.div`
 `
 
 export const ClockStyled = styled(Clock)`
+    margin-right: 1rem;
 `
 
 export const BoxInform = styled.div`
@@ -25,7 +26,7 @@ export const BoxInform = styled.div`
 
 export const Title = styled.h3`
     font-family: Montserrat;
-    font-size: 1rem;
+    font-size: 1,2rem;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -37,7 +38,7 @@ export const Title = styled.h3`
 
 export const RestaurantName = styled.p`
     font-family: Montserrat;
-    font-size: 1rem;
+    font-size: 1,2rem;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;

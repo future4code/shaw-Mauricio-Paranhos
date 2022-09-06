@@ -15,13 +15,16 @@ const Order = ({ totalPrice, restaurantName }) => {
             <ClockStyled />
             <BoxInform>
                 <Title>
-                    Pedido-em-andamento
+                    Pedido em andamento
                 </Title>
                 <RestaurantName>
                     {restaurantName}
                 </RestaurantName>
                 <TotalPrice>
-                    SUBTOTAL R${totalPrice}
+                    SUBTOTAL: {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(totalPrice)}
                 </TotalPrice>
             </BoxInform>
         </OrderContainer>
