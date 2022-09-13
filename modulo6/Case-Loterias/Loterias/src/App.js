@@ -1,8 +1,7 @@
-import "./App.css";
-import { ChakraProvider } from "@chakra-ui/react";
-import { Router } from "./routes/Router";
-import GlobalState from "./global/GlobalState";
-import { Headers } from "../src/Components/Headers";
+import "./App.css"
+import { ChakraProvider } from "@chakra-ui/react"
+import { Router } from "./Routes/Router"
+import GlobalState from "./Global/GlobalState"
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
         </ChakraProvider>
       </GlobalState>
     </div>
-  );
+  )
 }
 
 export default App;

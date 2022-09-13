@@ -1,58 +1,58 @@
-import ContextLoterias from "./GlobalContext";
-import axios from "axios";
+import ContextLoterias from "./GlobalContext"
+import axios from "axios"
 
-import { useState, useEffect } from "react";
-import { BaseUrl } from "../constantes";
+import { useState, useEffect } from "react"
+import { BASE_URL } from "../Constants/BaseUrl"
 
 const GlobalState = (props) => {
-  const [loterias, setLoterias] = useState([]);
-  const [concurso, setConcurso] = useState({ data: "", numeros: [] });
+  const [loterias, setLoterias] = useState([])
+  const [concurso, setConcurso] = useState({ data: "", numeros: [] })
 
   useEffect(() => {
-    jogosLotericos();
-    getConcursos();
-  }, []);
+    jogosLotericos()
+    getConcursos()
+  }, [])
 
   const jogosLotericos = () => {
     axios
-      .get(`${BaseUrl}/loterias`)
+      .get(`${BASE_URL}/loterias`)
       .then((res) => {
-        setLoterias(res.data);
-        console.log(res);
+        setLoterias(res.data)
+        console.log(res)
       })
       .catch((err) => {
-        console.log(err);
-      });
-  };
+        console.log(err)
+      })
+  }
 
   const getConcursos = () => {
     axios
-      .get(`${BaseUrl}/loterias-concursos`)
+      .get(`${BASE_URL}/loterias-concursos`)
       .then((res) => {
-        console.log(res);
-        const concurso = res.data.find((x) => x.loteriaId == 0);
+        console.log(res)
+        const concurso = res.data.find((x) => x.loteriaId === 0)
 
         if (!concurso) {
-          throw new Error("Concurso não encontrado!");
+          throw new Error("Concurso não encontrado!")
         }
 
-        getConcursoData(concurso.concursoId);
+        getConcursoData(concurso.concursoId)
       })
       .catch((err) => {
-        console.log(err);
-      });
-  };
+        console.log(err)
+      })
+  }
 
   const getConcursoData = (id) => {
     axios
-      .get(`${BaseUrl}/concursos/${id}`)
+      .get(`${BASE_URL}/concursos/${id}`)
       .then((res) => {
-        setConcurso(res.data);
+        setConcurso(res.data)
       })
       .catch((err) => {
-        console.log(err);
-      });
-  };
+        console.log(err)
+      })
+  }
 
   const request = {
     loterias,
@@ -60,13 +60,13 @@ const GlobalState = (props) => {
     setConcurso,
     setLoterias,
     getConcursoData
-  };
+  }
   return (
     <div>
       <ContextLoterias.Provider value={request}>
         {props.children}
       </ContextLoterias.Provider>
     </div>
-  );
-};
-export default GlobalState;
+  )
+}
+export default GlobalState

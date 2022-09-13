@@ -1,59 +1,54 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react"
+import { Text, Box, Flex, Image } from "@chakra-ui/react"
+import ContextLoterias from "../Global/GlobalContext"
+import logo from "../Assets/logo.png"
+import { Headers } from "../Components/Headers"
+import moment from "moment"
 
-import { Select, Text, Box, Flex, Image, Grid, Stack } from "@chakra-ui/react";
-import { useNavigate } from "react-router";
-
-import ContextLoterias from "../global/GlobalContext";
-import trevo from "../imagens/trevo.png";
-import { Headers } from "./Headers";
-import moment from "moment";
-
-moment.locale("pt-br");
+moment.locale("pt-br")
 
 export const Quina = () => {
-  const navigate = useNavigate();
 
-  const { concurso, jogosLotericos, getConcursos, getConcursoData } =
-    useContext(ContextLoterias);
+  const { concurso, getConcursoData } =
+    useContext(ContextLoterias)
 
   useEffect(() => {
-    getConcursoData("5534");
-  }, []);
+    getConcursoData("5534")
+  }, [])
 
   return (
-    <Flex direction={{ base: "column", md: "row" }} h={"100vh"} w={"100vw"}>
+    <Flex 
+      direction={{ base: "column", md: "row" }} 
+      h={"100vh"} 
+      w={"100vw"}
+    >
       <Flex
-        bg="#8666EF"
+        bg="#8666ef"
         direction={"column"}
         justify={"space-between"}
         align={"center"}
         p={10}
         minW={"400px"}
       >
-        {/* <Box m={"10px"}> */}
         <Headers />
-        {/* </Box> */}
-        <Flex alignSelf={"flex-start"}>
-          <Image w={"35px"} h={"35px"} src={trevo}></Image>
+        <Flex alignItems={"center"} marginTop={"10%"} direction={"column"} justifyItems={"center"}>
+          <Image w={"70px"} h={"70px"} src={logo}></Image>
           <Text
-            // mt={"400px"}
-            // m={"auto"}
-            // ml={"100px"}
             fontSize={"30px"}
             fontWeight={700}
             color={"white"}
+            fontFamily={" Montserrat"}
+            marginTop={"2%"}
           >
             Quina
           </Text>
         </Flex>
 
         <Box color={"white"}>
-          {/* <Text fontFamily={" Montserrat"} align={"center"} mt={"280px"}> */}
           <Text>Concurso</Text>
           <Text fontWeight={"bold"}>
             {concurso.id} - {moment(concurso.data).format("L")}
           </Text>
-          {/* </Text> */}
         </Box>
       </Flex>
 
@@ -68,7 +63,7 @@ export const Quina = () => {
       >
         <Box as="div" className="corner"></Box>
 
-        <Flex flexWrap={"wrap"} justify={"center"} zIndex={5}>
+        <Flex flexWrap={"wrap"} zIndex={5}>
           {concurso.numeros.map((numero) => {
             return (
               <Flex
@@ -85,10 +80,10 @@ export const Quina = () => {
               >
                 {numero}
               </Flex>
-            );
+            )
           })}
         </Flex>
       </Flex>
     </Flex>
-  );
-};
+  )
+}

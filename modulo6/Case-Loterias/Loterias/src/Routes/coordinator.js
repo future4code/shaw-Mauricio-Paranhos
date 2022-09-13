@@ -1,29 +1,29 @@
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router"
 
 export class Navigate {
-  navigate = useNavigate();
+  navigate = useNavigate()
 
   goMega = () => {
-    this.navigate("/");
-  };
+    this.navigate("/")
+  }
 
   goQuina = () => {
-    this.navigate("/quina");
-  };
+    this.navigate("/quina")
+  }
 
   goTime = () => {
-    this.navigate("/timemania");
-  };
+    this.navigate("/timemania")
+  }
 
   goLotoMania = () => {
-    this.navigate("/lotomania");
-  };
+    this.navigate("/lotomania")
+  }
 
   golotoFacil = () => {
-    this.navigate("/lotofacil");
-  };
+    this.navigate("/lotofacil")
+  }
 
   goDiaDeSorte = () => {
-    this.navigate("/diadesorte");
-  };
+    this.navigate("/diadesorte")
+  }
 }

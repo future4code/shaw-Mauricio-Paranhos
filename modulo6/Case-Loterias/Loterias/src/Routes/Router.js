@@ -1,11 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { MegaSena } from "../pages/MegaSena"
-import { Quina } from "../pages/Quina"
-import { LotoFacil } from "../pages/LotoFacil"
-import { LotoMania } from "../pages/LotoMania"
-import { TimeMania } from "../pages/TimeMania"
-import { DiaDeSorte } from "../pages/DiaDeSorte"
-import { Headers } from "../Components/Headers"
+import { MegaSena } from "../Pages/MegaSena"
+import { Quina } from "../Pages/Quina"
+import { LotoFacil } from "../Pages/LotoFacil"
+import { LotoMania } from "../Pages/LotoMania"
+import { TimeMania } from "../Pages/TimeMania"
+import { DiaDeSorte } from "../Pages/DiaDeSorte"
 
 export const Router = () => {
   return (
