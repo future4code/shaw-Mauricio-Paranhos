@@ -5,7 +5,7 @@ import { Base_URL } from "../../Constants/Base_URL"
 import MoviesCard from "../../Components/MoviesCard/MoviesCard"
 import { useNavigate } from "react-router-dom"
 import { goToMovieDetailsPage } from "../../Routes/Coordinator"
-import { ButtonStyled, DivCategorias, MoviesContainer } from "./styled"
+import { ButtonStyled, DivCategorias, MenuPages, MoviesContainer, Tittle } from "./styled"
 
 
 const FeedPage = () => {
@@ -108,13 +108,14 @@ const FeedPage = () => {
 
   return (
     <div style={{ width: "100vw" }}>
-      <p>
-          Milhões de filmes, séries e pessoaspara descobrir. Explore já.
-      </p>
+      <Tittle>
+        <p>Milhões de filmes, séries e pessoaspara descobrir. Explore já.</p>
+      </Tittle>
       <DivCategorias>
         {filteredGenres}
       </DivCategorias>
       <MoviesContainer>{filteredMovies}</MoviesContainer>
+      <MenuPages>
       {page !== 1 && (
         <>
           <button onClick={() => changePage(1)}> Primeira </button>
@@ -128,6 +129,7 @@ const FeedPage = () => {
           <button onClick={() => changePage(500)}> Última </button>
         </>
       )}
+      </MenuPages>
     </div>
   ) 
 } 

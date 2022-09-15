@@ -2,6 +2,7 @@ import axios from "axios"
 import React, { useEffect, useState } from "react" 
 import { useParams } from "react-router-dom" 
 import { Base_URL } from "../../Constants/Base_URL" 
+import { Info, MainDiv } from "./styled"
 
 
 const MovieDetailsPage = () => {
@@ -35,15 +36,17 @@ const MovieDetailsPage = () => {
   
   
     return(
-        <div>
+        <MainDiv>
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="Capa do filme"/>
-            {movie.title}
-            <p>{movie.release_date}(BR)</p>
-            {getGenres}
-            <p>{movie.runtime}m</p>
-            {movie.vote_average}
-            <p>{movie.overview}</p>
-        </div>
+            <Info>
+                <p><b>Titulo:</b> {movie.title}</p>
+                <p><b>Lançamento:</b> {movie.release_date}(BR)</p>
+                <p><b>Gênero:</b> {getGenres}</p>
+                <p><b>Duração:</b> {movie.runtime}m</p>
+                <p><b>Avaliação:</b> {movie.vote_average}</p>
+                <p><b>Sinópse:</b> {movie.overview}</p>
+            </Info>
+        </MainDiv>
     )
 }
 
