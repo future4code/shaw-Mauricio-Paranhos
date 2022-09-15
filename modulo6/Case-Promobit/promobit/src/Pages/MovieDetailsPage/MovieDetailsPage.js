@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom" 
 import { Base_URL } from "../../Constants/Base_URL" 
 import { Info, MainDiv } from "./styled"
+import { useNavigate } from "react-router-dom"
+import { goToBack } from "../../Routes/Coordinator"
 
 
 const MovieDetailsPage = () => {
@@ -10,6 +12,8 @@ const MovieDetailsPage = () => {
     const [genres, setGenres] = useState([])
 
     const { id } = useParams()
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         getMovieDetails() 
@@ -46,6 +50,7 @@ const MovieDetailsPage = () => {
                 <p><b>Avaliação:</b> {movie.vote_average}</p>
                 <p><b>Sinópse:</b> {movie.overview}</p>
             </Info>
+            <button onClick={() => goToBack(navigate)}>Voltar</button>
         </MainDiv>
     )
 }
