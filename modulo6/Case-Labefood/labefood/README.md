@@ -40,5 +40,5 @@ Fluxo de Login/Cadastro
 
 
 ### Link Surge
-- https://willing-connection.surge.sh
+- https://kind-achieve.surge.sh
 
