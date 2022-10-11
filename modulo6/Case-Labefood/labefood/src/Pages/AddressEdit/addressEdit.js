@@ -1,19 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../../Constants/url'
 import { useForm } from '../../Hooks/useForm'
 import Header from '../../Components/Header/Header'
 import { ButtonStyled, ImputMaterial, Main } from './styled'
-import { goToFeed } from '../../Routes/coordinator'
+import { goToProfile } from '../../Routes/coordinator'
 import { useProtectedPage } from '../../Hooks/useProtectedPage'
 
-
-
-const SignUpAddress = () => {
+const AddressEdit = () => {
     useProtectedPage()
 
-    const { form, onChange, clean } = useForm({
+    const { form, onChange, clean, setForm } = useForm({
         "street": "",
         "number": "",
         "neighbourhood": "",
@@ -21,6 +19,31 @@ const SignUpAddress = () => {
         "state": "",
         "complement": ""
     })
+
+    const getAddress = async() => {
+        await axios.get(`${BASE_URL}/profile/address`,{
+            headers:{
+                auth: localStorage.getItem('token')
+            }
+        })
+        .then((res) => {
+            setForm({
+                "street": res.data.address.street,
+                "number": res.data.address.number,
+                "neighbourhood": res.data.address.neighbourhood,
+                "city": res.data.address.city,
+                "state": res.data.address.state,
+                "complement": res.data.address.complement
+            })
+        })
+        .catch((err) => {
+            console.log(err.response)
+        })
+    }
+
+    useEffect(() => {
+        getAddress()
+    }, [])
 
     const navigate = useNavigate()
 
@@ -40,17 +63,16 @@ const SignUpAddress = () => {
         })
             .then((res) => {
                 localStorage.setItem('token',res.data.token)
-                goToFeed(navigate)
+                goToProfile(navigate)
             })
             .catch((err) => {
                 console.log(err.response)
             })
     }
 
-    return (
+    return(
         <Main>
-            <Header back/>
-            <p>SignUpAddress</p>
+            <Header title={'Editar endereço'} back/>
             <form onSubmit={onSubmitFormAddress}>
                 <ImputMaterial
                     id="outlined-basic"
@@ -117,10 +139,10 @@ const SignUpAddress = () => {
                     onChange={onChange}
                     required
                 />
-                <ButtonStyled type='submit'>Entrar</ButtonStyled>
+                <ButtonStyled type='submit'>Salvar</ButtonStyled>
             </form>
         </Main>
     )
 }
 
-export default SignUpAddress
+export default AddressEdit
